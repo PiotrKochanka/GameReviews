@@ -2,7 +2,7 @@ function Layout(props) {
     return(
         <>
             <div>
-                {props.header};
+                {props.children};
             </div>
         </>
     );

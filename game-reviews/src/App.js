@@ -5,16 +5,21 @@ import Layout from './components/Layout/Layout';
 import Searchbar from './components/Header/Searchbar/Searchbar';
 
 function App() {
+
+  let layout = {
+    header: (
+      <Header>
+        <h2>Test</h2>
+        <Searchbar />
+      </Header>
+    ),
+  };
+
   return (
     <div className="App">
-      <Layout
-          header = {
-            <Header>
-              <h2>Test</h2>
-              <Searchbar></Searchbar>
-            </Header>
-          }
-      />
+      <Layout>
+        {layout.header}
+      </Layout>
     </div>
   );
 }
