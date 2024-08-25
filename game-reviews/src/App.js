@@ -6,11 +6,10 @@ import Searchbar from './components/Header/Searchbar/Searchbar';
 import logo from './assets/images/logo.png';
 
 function App() {
-
   let layout = {
     header: (
       <Header>
-        <a href="#" class="logo"><img src={logo} alt="Logo"/></a>
+        <a href="#" className="logo"><img src={logo} alt="Logo"/></a>
         <Searchbar />
       </Header>
     ),
