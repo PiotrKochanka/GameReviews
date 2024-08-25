@@ -3,13 +3,14 @@ import './App.css';
 import Header from './components/Header/Header';
 import Layout from './components/Layout/Layout';
 import Searchbar from './components/Header/Searchbar/Searchbar';
+import logo from './assets/images/logo.png';
 
 function App() {
 
   let layout = {
     header: (
       <Header>
-        <h2>Test</h2>
+        <a href="#" class="logo"><img src={logo} alt="Logo"/></a>
         <Searchbar />
       </Header>
     ),

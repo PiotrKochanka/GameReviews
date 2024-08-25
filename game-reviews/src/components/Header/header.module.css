@@ -1,0 +1,12 @@
+.header{
+    border: 1px solid red;
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+}
+.header_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 8px;
+}
