@@ -3,7 +3,8 @@ import styles from './baner.module.css';
 function Baner(props){
     return(
         <div className={`${styles.baner}`}>
-            <h2> Baner </h2>
+            <div className={`${styles.baner_graphic}`}>               
+            </div>
         </div>
     );
 }

@@ -8,6 +8,7 @@ function Menu(props){
             <li><a href="#">Gry</a></li>
             <li><a href="#">Poradniki</a></li>
             <li><a href="#">Promocje</a></li>
+            <li><a href="#">O Nas</a></li>
         </ul>
     );
 }

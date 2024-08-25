@@ -6,6 +6,7 @@ import Searchbar from './components/Header/Searchbar/Searchbar';
 import Menu from './components/Header/Menu/Menu';
 import Socials from './components/Header/Socials/Socials';
 import Baner from './components/Baner/Baner';
+import News from './components/News/News';
 import logo from './assets/images/logo.png';
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
     baner: (
       <Baner />
     ),
+    news: (
+      <News />
+    ),
   };
 
   return (
@@ -34,6 +38,7 @@ function App() {
       <Layout>
         {layout.header}
         {layout.baner}
+        {layout.news}
       </Layout>
     </div>
   );
