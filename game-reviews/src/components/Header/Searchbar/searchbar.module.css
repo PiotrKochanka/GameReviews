@@ -1,0 +1,23 @@
+.searchbar{
+    border-radius: 0.6rem;
+    overflow: hidden;
+    border: 1px solid rgb(197, 197, 197);
+    
+}
+.searchbar > input{
+    border: 0px none transparent;
+    height: 100%;
+    width: 240px;
+    padding: 0px 12px;
+    height: 36px;
+    font-size: 14px
+}
+.searchbar > button{
+    border: 0px none transparent;
+    background-color: transparent;
+    height: 100%;
+}
+.searchbar > button > svg{
+    font-size: 18px;
+    color: #003e66;
+}

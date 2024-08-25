@@ -1,0 +1,11 @@
+ul.socials{
+    display: flex;
+    gap: 16px;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px 0px 8px 0px;
+}
+ul.socials > li > a{
+    color: #dc9922;
+    text-decoration-color: transparent;
+}

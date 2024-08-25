@@ -3,12 +3,11 @@ import styles from './menu.module.css';
 function Menu(props){
     return(
         <ul className={`${styles.mainMenu}`}>
-            <li><a href="#">Test</a></li>
-            <li><a href="#">Test2</a></li>
-            <li><a href="#">Test3</a></li>
-            <li><a href="#">Test4</a></li>
-            <li><a href="#">Test5</a></li>
-            <li><a href="#">Test6</a></li>
+            <li><a href="#">Aktualności</a></li>
+            <li><a href="#">Forum</a></li>
+            <li><a href="#">Gry</a></li>
+            <li><a href="#">Poradniki</a></li>
+            <li><a href="#">Promocje</a></li>
         </ul>
     );
 }

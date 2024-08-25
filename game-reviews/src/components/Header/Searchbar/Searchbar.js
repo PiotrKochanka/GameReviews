@@ -4,8 +4,8 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 function Searchbar(props){
     return(
-        <div>
-            <input type="text" id="searchbar" />
+        <div className={`${styles.searchbar}`}>
+            <input type="text" id="searchbar" placeholder="Wpisz tytuł gry" />
             <button><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
         </div>
     );

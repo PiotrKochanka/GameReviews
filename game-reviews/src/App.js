@@ -4,6 +4,8 @@ import Header from './components/Header/Header';
 import Layout from './components/Layout/Layout';
 import Searchbar from './components/Header/Searchbar/Searchbar';
 import Menu from './components/Header/Menu/Menu';
+import Socials from './components/Header/Socials/Socials';
+import Baner from './components/Baner/Baner';
 import logo from './assets/images/logo.png';
 
 function App() {
@@ -14,10 +16,16 @@ function App() {
           <img src={logo} alt="Logo"/>
         </a>
         <div>
-          <Menu />
-          <Searchbar />
+          <Socials />
+          <div>
+            <Menu />
+            <Searchbar />
+          </div>
         </div>
       </Header>
+    ),
+    baner: (
+      <Baner />
     ),
   };
 
@@ -25,6 +33,7 @@ function App() {
     <div className="App">
       <Layout>
         {layout.header}
+        {layout.baner}
       </Layout>
     </div>
   );
