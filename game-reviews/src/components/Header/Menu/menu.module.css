@@ -1,0 +1,17 @@
+.mainMenu{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+}
+.mainMenu > li{
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+}
+.mainMenu > li > a{
+    text-decoration-color: transparent;
+    color: rgb(43, 43, 43);
+    font-weight: 700;
+    font-size: 18px;
+}
