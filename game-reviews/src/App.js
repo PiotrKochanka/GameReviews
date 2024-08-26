@@ -7,6 +7,8 @@ import Menu from './components/Header/Menu/Menu';
 import Socials from './components/Header/Socials/Socials';
 import Baner from './components/Baner/Baner';
 import News from './components/News/News';
+import Games from './components/Games/Games';
+import About from './components/About/About';
 import logo from './assets/images/logo.png';
 
 function App() {
@@ -31,6 +33,12 @@ function App() {
     news: (
       <News />
     ),
+    games: (
+      <Games />
+    ),
+    about: (
+      <About />
+    ),
   };
 
   return (
@@ -38,6 +46,8 @@ function App() {
       <Layout>
         {layout.header}
         {layout.baner}
+        {layout.games}
+        {layout.about}
         {layout.news}
       </Layout>
     </div>

@@ -19,3 +19,87 @@ code {
   max-height: 56px;
   object-fit: cover;
 }
+
+/* Tytuł */
+.start-title{
+  text-align: left;
+  font-size: 24px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+/* Slajder */
+.slick-slider{
+  max-width: 100%;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.slick-slide {
+  padding: 10px; /* Odstęp wokół każdego slajdu */
+}
+
+.slick-list {
+  overflow: hidden;
+}
+
+.slick-track {
+  display: flex;
+  align-items: center;
+}
+
+.slick-prev, .slick-next {
+  position: absolute;
+  top: 4px;
+  transform: translateY(-50%);
+  border: 1px solid rgb(143, 143, 143);
+  color: rgb(143, 143, 143);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  z-index: 1;
+  cursor: pointer;
+  display: flex!important;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-prev {
+  right: 40px;
+}
+
+.slick-next {
+  right: 0px;
+}
+
+.slick-dots {
+  bottom: -30px;
+}
+
+.slick-dots li button:before {
+  color: #000;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #007bff;
+}
+
+.slick-dots{
+  display: none!important;
+}
+
+/* .slick-list{
+  overflow: visible;
+} */
+
+/* .slick-slide{
+  opacity: 0.1;
+}
+
+.slick-active{
+  opacity: 1;
+} */

@@ -1,7 +1,10 @@
+.news_container{
+    padding: 64px 0px;
+}
 .news{
     display: flex;
     justify-content: space-between;
-    padding: 64px 0px;
+
 }
 .news_article{
     max-width: 420px;
