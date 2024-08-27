@@ -1,107 +1,184 @@
 import styles from './games.module.css';
 import React from 'react';
-import Slider from 'react-slick';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock, faClockRotateLeft, faSquarePollVertical } from '@fortawesome/free-solid-svg-icons';
+
 
 function Games(props){
-    const settings = {
-        dots: true,  // Pokazuje kropki na dole
-        infinite: true,  // Włącza nieskończone przewijanie
-        speed: 500,  // Czas trwania animacji w ms
-        slidesToShow: 6,  // Liczba widocznych elementów na raz
-        slidesToScroll: 2,  // Liczba elementów do przewinięcia naraz
-        autoplay: true,
-        autoplaySpeed: 3000,
-        nextArrow: <div className={`${styles.arrowRight}`}>&#10095;</div>,  // Niestandardowa strzałka w prawo
-        prevArrow: <div className={`${styles.arrowLeft}`}>&#10094;</div>,  // Niestandardowa strzałka w lewo
-    };
+
 
     return(
         <div className={`${styles.games_container}`}>
-            <h2 className={`${styles.title} start-title container`}>Najnowsze tytuły</h2>
-            <section className={`container`}>
-                <Slider {...settings}>
-                <article className={`${styles.game}`}>
-                    <div className={`${styles.game_icon_cont}`}>
-                        <div className={`${styles.game_icon}`}>
+            <div className={`${styles.games} container`}>
+                <div className={`${styles.games_column}`}>
+                    <h3><FontAwesomeIcon icon={faClock} />Ostatnio wydane</h3>
+                    <div className={`${styles.games_newest}`}>
+                        <div className={`${styles.games_revtit}`}>
+                            <span className={`${styles.games_rev}`}>
+                                4.4
+                            </span>
+                            <span className={`${styles.games_title}`}>
+                                Test
+                            </span>
                         </div>
+                        <span className={`${styles.games_date}`}>
+                            8-06-2024
+                        </span>
                     </div>
-                    <div className={`${styles.game_content}`}>
-                        <h2 className={`${styles.game_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.game_content_rate}`}>4.4</p>
-                    </div>
-                </article>
-                <article className={`${styles.game}`}>
-                    <div className={`${styles.game_icon_cont}`}>
-                        <div className={`${styles.game_icon}`}>
+                    <div className={`${styles.games_newest}`}>
+                        <div className={`${styles.games_revtit}`}>
+                            <span className={`${styles.games_rev}`}>
+                                4.4
+                            </span>
+                            <span className={`${styles.games_title}`}>
+                                Test
+                            </span>
                         </div>
+                        <span className={`${styles.games_date}`}>
+                            8-06-2024
+                        </span>
                     </div>
-                    <div className={`${styles.game_content}`}>
-                        <h2 className={`${styles.game_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.game_content_rate}`}>4.4</p>
-                    </div>
-                </article>
-                <article className={`${styles.game}`}>
-                    <div className={`${styles.game_icon_cont}`}>
-                        <div className={`${styles.game_icon}`}>
+                    <div className={`${styles.games_newest}`}>
+                        <div className={`${styles.games_revtit}`}>
+                            <span className={`${styles.games_rev}`}>
+                                4.4
+                            </span>
+                            <span className={`${styles.games_title}`}>
+                                Test
+                            </span>
                         </div>
+                        <span className={`${styles.games_date}`}>
+                            8-06-2024
+                        </span>
                     </div>
-                    <div className={`${styles.game_content}`}>
-                        <h2 className={`${styles.game_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.game_content_rate}`}>4.4</p>
-                    </div>
-                </article>
-                <article className={`${styles.game}`}>
-                    <div className={`${styles.game_icon_cont}`}>
-                        <div className={`${styles.game_icon}`}>
+                    <div className={`${styles.games_newest}`}>
+                        <div className={`${styles.games_revtit}`}>
+                            <span className={`${styles.games_rev}`}>
+                                4.4
+                            </span>
+                            <span className={`${styles.games_title}`}>
+                                Test
+                            </span>
                         </div>
+                        <span className={`${styles.games_date}`}>
+                            8-06-2024
+                        </span>
                     </div>
-                    <div className={`${styles.game_content}`}>
-                        <h2 className={`${styles.game_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.game_content_rate}`}>4.4</p>
-                    </div>
-                </article>
-                <article className={`${styles.game}`}>
-                    <div className={`${styles.game_icon_cont}`}>
-                        <div className={`${styles.game_icon}`}>
+                    <a href="#" className={`${styles.games_button}`}>Zobacz więcej</a>
+                </div>
+                <div className={`${styles.games_column}`}>
+                    <h3><FontAwesomeIcon icon={faClockRotateLeft} />Nadchodzące premiery</h3>
+                    <div className={`${styles.games_newest}`}>
+                        <div className={`${styles.games_revtit}`}>
+                            <span className={`${styles.games_rev}`}>
+                                4.4
+                            </span>
+                            <span className={`${styles.games_title}`}>
+                                Test
+                            </span>
                         </div>
+                        <span className={`${styles.games_date}`}>
+                            8-06-2024
+                        </span>
                     </div>
-                    <div className={`${styles.game_content}`}>
-                        <h2 className={`${styles.game_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.game_content_rate}`}>4.4</p>
-                    </div>
-                </article>
-                <article className={`${styles.game}`}>
-                    <div className={`${styles.game_icon_cont}`}>
-                        <div className={`${styles.game_icon}`}>
+                    <div className={`${styles.games_newest}`}>
+                        <div className={`${styles.games_revtit}`}>
+                            <span className={`${styles.games_rev}`}>
+                                4.4
+                            </span>
+                            <span className={`${styles.games_title}`}>
+                                Test
+                            </span>
                         </div>
+                        <span className={`${styles.games_date}`}>
+                            8-06-2024
+                        </span>
                     </div>
-                    <div className={`${styles.game_content}`}>
-                        <h2 className={`${styles.game_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.game_content_rate}`}>4.4</p>
-                    </div>
-                </article>
-                <article className={`${styles.game}`}>
-                    <div className={`${styles.game_icon_cont}`}>
-                        <div className={`${styles.game_icon}`}>
+                    <div className={`${styles.games_newest}`}>
+                        <div className={`${styles.games_revtit}`}>
+                            <span className={`${styles.games_rev}`}>
+                                4.4
+                            </span>
+                            <span className={`${styles.games_title}`}>
+                                Test
+                            </span>
                         </div>
+                        <span className={`${styles.games_date}`}>
+                            8-06-2024
+                        </span>
                     </div>
-                    <div className={`${styles.game_content}`}>
-                        <h2 className={`${styles.game_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.game_content_rate}`}>4.4</p>
-                    </div>
-                </article>
-                <article className={`${styles.game}`}>
-                    <div className={`${styles.game_icon_cont}`}>
-                        <div className={`${styles.game_icon}`}>
+                    <div className={`${styles.games_newest}`}>
+                        <div className={`${styles.games_revtit}`}>
+                            <span className={`${styles.games_rev}`}>
+                                4.4
+                            </span>
+                            <span className={`${styles.games_title}`}>
+                                Test
+                            </span>
                         </div>
+                        <span className={`${styles.games_date}`}>
+                            8-06-2024
+                        </span>
                     </div>
-                    <div className={`${styles.game_content}`}>
-                        <h2 className={`${styles.game_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.game_content_rate}`}>4.4</p>
+                    <a href="#" className={`${styles.games_button}`}>Zobacz więcej</a>
+                </div>
+                <div className={`${styles.games_column}`}>
+                    <h3><FontAwesomeIcon icon={faSquarePollVertical} />Ostatnie recenzje</h3>
+                    <div className={`${styles.games_newest}`}>
+                        <div className={`${styles.games_revtit}`}>
+                            <span className={`${styles.games_rev}`}>
+                                4.4
+                            </span>
+                            <span className={`${styles.games_title}`}>
+                                Test
+                            </span>
+                        </div>
+                        <span className={`${styles.games_date}`}>
+                            8-06-2024
+                        </span>
                     </div>
-                </article>
-                </Slider>
-            </section>
+                    <div className={`${styles.games_newest}`}>
+                        <div className={`${styles.games_revtit}`}>
+                            <span className={`${styles.games_rev}`}>
+                                4.4
+                            </span>
+                            <span className={`${styles.games_title}`}>
+                                Test
+                            </span>
+                        </div>
+                        <span className={`${styles.games_date}`}>
+                            8-06-2024
+                        </span>
+                    </div>
+                    <div className={`${styles.games_newest}`}>
+                        <div className={`${styles.games_revtit}`}>
+                            <span className={`${styles.games_rev}`}>
+                                4.4
+                            </span>
+                            <span className={`${styles.games_title}`}>
+                                Test
+                            </span>
+                        </div>
+                        <span className={`${styles.games_date}`}>
+                            8-06-2024
+                        </span>
+                    </div>
+                    <div className={`${styles.games_newest}`}>
+                        <div className={`${styles.games_revtit}`}>
+                            <span className={`${styles.games_rev}`}>
+                                4.4
+                            </span>
+                            <span className={`${styles.games_title}`}>
+                                Test
+                            </span>
+                        </div>
+                        <span className={`${styles.games_date}`}>
+                            8-06-2024
+                        </span>
+                    </div>
+                    <a href="#" className={`${styles.games_button}`}>Zobacz więcej</a>           
+                </div>
+            </div>
         </div>
     );
 }

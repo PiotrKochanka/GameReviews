@@ -14,10 +14,39 @@ code {
 }
 
 /* Logo */
-.logo > img{
-  width: 112px;
+.logo > img, .logo-start{
+  width: 56px;
   max-height: 56px;
+  /* filter: brightness(0) saturate(100%) invert(80%) sepia(60%) saturate(1825%) hue-rotate(0deg) brightness(104%) contrast(104%); */
+  filter: brightness(0) saturate(100%) invert(68%) sepia(53%) saturate(905%) hue-rotate(201deg) brightness(102%) contrast(103%);
   object-fit: cover;
+}
+
+.logo{
+  text-decoration-color: transparent;
+  font-size: 36px;
+  display: flex;
+  align-items: flex-end;
+  font-weight: 700;
+}
+
+.logo > span{
+  color: white;
+  text-transform: uppercase;
+}
+
+.logo > span > span:nth-child(1){
+  color: rgb(255, 255, 255);
+}
+
+.logo > span > span:nth-child(2){
+  /* color: #FFD700; */
+  color: #bda8fe;
+  text-transform: none;
+}
+
+.logo-about{
+  margin-bottom: 16px;
 }
 
 /* Tytuł */
@@ -54,7 +83,7 @@ code {
 
 .slick-prev, .slick-next {
   position: absolute;
-  top: 4px;
+  top: -54px;
   transform: translateY(-50%);
   border: 1px solid rgb(143, 143, 143);
   color: rgb(143, 143, 143);
@@ -103,3 +132,12 @@ code {
 .slick-active{
   opacity: 1;
 } */
+
+.App{
+  background-color: rgb(243, 243, 243);
+}
+main{
+  position: relative;
+  z-index: 1;
+  background-color: rgb(243, 243, 243);
+}

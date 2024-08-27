@@ -6,6 +6,8 @@ ul.socials{
     margin: 0px 0px 8px 0px;
 }
 ul.socials > li > a{
-    color: #dc9922;
+    /* color: #00FFFF; */
+    /* color: #FFD700; */
+    filter: brightness(0) saturate(100%) invert(68%) sepia(53%) saturate(905%) hue-rotate(201deg) brightness(102%) contrast(103%);
     text-decoration-color: transparent;
 }
