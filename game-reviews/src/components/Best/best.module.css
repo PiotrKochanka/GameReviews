@@ -2,7 +2,7 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 .bests_container{
-    padding: 24px 0px;
+    padding: 40px 0px 24px 0px;
 }
 .best{
     width: 200px;
@@ -11,6 +11,7 @@
     position: relative;
     width: 200px;
     height: 260px;
+    border: 1px solid #bda8fe83;
     border-radius: 0.6rem;
     overflow: hidden;
     margin-bottom: 16px;
@@ -26,10 +27,24 @@
 }
 .best_content_title{
     font-size: 18px;
+    color: white;
 }
 .best_content_title, .best_content_rate{
     text-align: left;
+    color: white;
+
 }
+.best_content_rate{
+    font-weight: 800;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 0.5rem;
+    /* background-color: rgb(255, 175, 27); */
+    color: white;
+}
+
 
 section{
     display: flex;

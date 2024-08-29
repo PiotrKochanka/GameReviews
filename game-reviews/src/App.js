@@ -12,13 +12,15 @@ import About from './components/About/About';
 import Best from './components/Best/Best';
 import logo from './assets/images/logo.png';
 import RSSFeed from './components/RSSFeed/Rssfeed';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 // import RSSFeed from './components/RSSFeed';
 
 function App() {
   const logoElement = (
     <a href="#" className="logo">
       <img src={logo} alt="Logo" />
-      <span>Casual<span></span><span>Review</span></span>
+      <span>FAN<span></span><span>Boy</span></span>
     </a>
   );
 
@@ -31,6 +33,7 @@ function App() {
           <div>
             <Menu />
             <Searchbar />
+            <a class="user" href="#" alt="Logowanie"><FontAwesomeIcon icon={faUser} /></a>
           </div>
         </div>
       </Header>
@@ -63,9 +66,9 @@ function App() {
           <main>
             {layout.best}
             {layout.games}
+            {layout.rss}
             {layout.about}
             {layout.news}
-            {layout.rss}
           </main>
         </Layout>
     </div>

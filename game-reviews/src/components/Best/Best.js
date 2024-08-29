@@ -24,8 +24,8 @@ function Best(props){
                         </div>
                     </div>
                     <div className={`${styles.best_content}`}>
-                        <h2 className={`${styles.best_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.best_content_rate}`}>4.4</p>
+                        <h2 className={`${styles.best_content_title}`}>Cyberpunk 2077</h2>
+                        <p className={`${styles.best_content_rate} good_rate`}>8.2</p>
                     </div>
                 </article>
                 <article className={`${styles.best}`}>
@@ -35,7 +35,7 @@ function Best(props){
                     </div>
                     <div className={`${styles.best_content}`}>
                         <h2 className={`${styles.best_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.best_content_rate}`}>4.4</p>
+                        <p className={`${styles.best_content_rate} mid_rate`}>6.2</p>
                     </div>
                 </article>
                 <article className={`${styles.best}`}>
@@ -45,7 +45,7 @@ function Best(props){
                     </div>
                     <div className={`${styles.best_content}`}>
                         <h2 className={`${styles.best_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.best_content_rate}`}>4.4</p>
+                        <p className={`${styles.best_content_rate} bad_rate`}>2.4</p>
                     </div>
                 </article>
                 <article className={`${styles.best}`}>
@@ -55,7 +55,7 @@ function Best(props){
                     </div>
                     <div className={`${styles.best_content}`}>
                         <h2 className={`${styles.best_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.best_content_rate}`}>4.4</p>
+                        <p className={`${styles.best_content_rate} bad_rate`}>4.4</p>
                     </div>
                 </article>
                 <article className={`${styles.best}`}>
@@ -65,7 +65,7 @@ function Best(props){
                     </div>
                     <div className={`${styles.best_content}`}>
                         <h2 className={`${styles.best_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.best_content_rate}`}>4.4</p>
+                        <p className={`${styles.best_content_rate} bad_rate`}>4.4</p>
                     </div>
                 </article>
                 <article className={`${styles.best}`}>
@@ -75,7 +75,7 @@ function Best(props){
                     </div>
                     <div className={`${styles.best_content}`}>
                         <h2 className={`${styles.best_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.best_content_rate}`}>4.4</p>
+                        <p className={`${styles.best_content_rate} good_rate`}>7.4</p>
                     </div>
                 </article>
                 <article className={`${styles.best}`}>

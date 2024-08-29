@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RSSFeedController;
+use App\Http\Controllers\RSSFeedController2;
 
 
 /*
@@ -20,3 +21,4 @@ Route::get('/', function () {
 });
 
 Route::get('/rss-feed', [RSSFeedController::class, 'getFeed']);
+Route::get('/rss-feed2', [RSSFeedController2::class, 'getFeed']);

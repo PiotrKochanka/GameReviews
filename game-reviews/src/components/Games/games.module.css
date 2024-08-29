@@ -2,8 +2,8 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 .games_container{
-    /* background-color: black; */
-    padding: 24px 0px;
+    background-color: #292929;
+    padding: 32px 0px;
 }
 .games{
     display: flex;
@@ -12,7 +12,11 @@
 .games_column{
     width: 100%;
     max-width: 32.5%;
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* background-color: white; */
+    background-color: #353535;
     border-radius: 0.6rem;
     padding: 16px;
     -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.14);
@@ -22,7 +26,10 @@
 .games_column > h3{
     text-align: left;
     font-size: 18px;
-    border-bottom: 1px solid rgb(219, 219, 219);
+    color: white;
+    width: 100%;
+    /* border-bottom: 1px solid rgb(219, 219, 219); */
+    border-bottom: 1px solid rgb(84 84 84);
     padding-bottom: 8px;
     margin-bottom: 0px;
     font-weight: 700;
@@ -36,11 +43,13 @@
     color: #bda8fe;
 }
 .games_column > div{
-    border-bottom: 1px solid rgb(219, 219, 219);
+    border-bottom: 1px solid rgb(84 84 84);
     text-align: left;
-    padding: 4px 8px;
+    padding: 8px 8px;
+    color: white;
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 .games_revtit{
     display: flex;
@@ -55,11 +64,22 @@
     padding: 8px 24px;
     border-radius: 0.6rem;
     /* background-color: #FFD700; */
-    background-color: #bda8fe;
-    color: rgb(36, 29, 10);
+    background-color: transparent;
+    border: 2px solid #bda8fe;
+    color: #bda8fe;;
     margin-top: 16px;
     width: max-content;
 }
 /* .games_column > div:nth-child(1){
     border-top: 1px solid rgb(206, 206, 206);
 } */
+.games_rev{
+    border-radius: 0.5rem;
+    display: block;
+    font-weight: 800;
+    padding: 4px 8px;
+}
+.games_title, .games_date{
+    display: flex;
+    align-items: center;
+}

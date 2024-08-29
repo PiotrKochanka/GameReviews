@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use SimplePie;
 
-class RSSFeedController extends Controller
+class RSSFeedController2 extends Controller
 {
     public function getFeed()
     {
         try {
             $feed = new SimplePie();
             $feed->set_cache_location(storage_path('framework/cache'));
-            $feed->set_feed_url('https://www.gry-online.pl/newsroom/news/');
+            $feed->set_feed_url('https://gamerweb.pl/publicystyka/feed/');
             $feed->init();
             
             if ($feed->error()) {

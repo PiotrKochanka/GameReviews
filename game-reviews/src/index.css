@@ -22,12 +22,38 @@ code {
   object-fit: cover;
 }
 
+header .logo{
+  text-decoration-color: transparent;
+  font-size: 36px;
+  display: flex;
+  align-items: flex-end;
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 0px;
+}
+
 .logo{
   text-decoration-color: transparent;
   font-size: 36px;
   display: flex;
   align-items: flex-end;
   font-weight: 700;
+  position: relative;
+  margin-bottom: 16px;
+}
+header .logo:before{
+  content: 'alpha';
+  text-transform: uppercase;
+  display: block;
+  font-weight: 800;
+  font-size: 11px;
+  padding: 0px 8px;
+  border-radius: 0.3rem;
+  color: black;
+  background-color: white;
+  position: absolute;
+  right: -13px;
+  bottom: 33px;
 }
 
 .logo > span{
@@ -52,10 +78,25 @@ code {
 /* Tytuł */
 .start-title{
   text-align: left;
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
   margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid rgb(190, 190, 190);
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgb(84 84 84);
+  position: relative;
+}
+.start-title:after{
+  content: '';
+  display: block;
+  width: 200px;
+  height: 2px;
+  background-color: #bda8fe;
+  position: absolute;
+  bottom: -1px;
+  left: 0px;
+  border-radius: 1rem;
 }
 
 /* Slajder */
@@ -83,10 +124,10 @@ code {
 
 .slick-prev, .slick-next {
   position: absolute;
-  top: -54px;
+  top: -48px;
   transform: translateY(-50%);
-  border: 1px solid rgb(143, 143, 143);
-  color: rgb(143, 143, 143);
+  border: 2px solid #bda8fe;
+  color: #bda8fe;
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -134,10 +175,41 @@ code {
 } */
 
 .App{
-  background-color: rgb(243, 243, 243);
+  /* background-color: rgb(243, 243, 243); */
+  background-color: rgb(46 46 46);
 }
 main{
   position: relative;
   z-index: 1;
-  background-color: rgb(243, 243, 243);
+  /* background-color: rgb(243, 243, 243); */
+  background-color: rgb(46 46 46);
+
+}
+
+/* oceny */
+.good_rate{
+  background-color: rgb(43, 177, 43);
+  color: black!important;
+}
+.mid_rate{
+  background-color: rgb(255, 175, 27);
+  color: black!important;
+}
+.bad_rate{
+  background-color: rgb(255, 80, 80);
+  color: black!important;
+}
+
+
+/* User */
+.user{
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #bda8fe;
+  color: #bda8fe;
+  border-radius: 0.6rem;
+  width: 36px;
+  height: 36px;
 }

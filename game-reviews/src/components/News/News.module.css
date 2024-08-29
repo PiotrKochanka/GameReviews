@@ -2,21 +2,28 @@
     padding: 64px 0px;
 }
 .news{
+    /* display: flex;
+    justify-content: space-between; */
     display: flex;
-    justify-content: space-between;
-
+    flex-direction: column;
+    gap: 24px;
 }
 .news_article{
-    max-width: 420px;
-    border: 1px solid rgb(224, 224, 224);
-    border-radius: 0.8rem;
+    width: 100%;
+    max-width: 100%;
     overflow: hidden;
+    display: flex;
 }
 
 /* Ikona */
 .news_icon_cont{
-    width: 420px;
+    width: 600px;
     height: calc(2/3 * 420px);
+    border-radius: 0.8rem;
+    overflow: hidden;
+}
+.news_article:nth-child(2n+2) .news_icon_cont{
+    order: 2;
 }
 .news_icon{
     background-image: url(../../assets/images/ikona_uniwersalna.jpeg);
@@ -34,6 +41,9 @@
     width: 100%;
     text-align: left;
     padding: 8px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .news_content_date{
     font-size: 14px;

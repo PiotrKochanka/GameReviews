@@ -22,5 +22,5 @@
 }
 .header_container > div > div{
     display: flex;
-    gap: 24px;
+    gap: 16px;
 }

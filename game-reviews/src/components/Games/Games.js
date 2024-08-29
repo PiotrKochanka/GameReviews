@@ -14,7 +14,7 @@ function Games(props){
                     <h3><FontAwesomeIcon icon={faClock} />Ostatnio wydane</h3>
                     <div className={`${styles.games_newest}`}>
                         <div className={`${styles.games_revtit}`}>
-                            <span className={`${styles.games_rev}`}>
+                            <span className={`${styles.games_rev} good_rate`}>
                                 4.4
                             </span>
                             <span className={`${styles.games_title}`}>
@@ -27,7 +27,7 @@ function Games(props){
                     </div>
                     <div className={`${styles.games_newest}`}>
                         <div className={`${styles.games_revtit}`}>
-                            <span className={`${styles.games_rev}`}>
+                            <span className={`${styles.games_rev} bad_rate`}>
                                 4.4
                             </span>
                             <span className={`${styles.games_title}`}>
@@ -40,7 +40,7 @@ function Games(props){
                     </div>
                     <div className={`${styles.games_newest}`}>
                         <div className={`${styles.games_revtit}`}>
-                            <span className={`${styles.games_rev}`}>
+                            <span className={`${styles.games_rev} good_rate`}>
                                 4.4
                             </span>
                             <span className={`${styles.games_title}`}>
@@ -53,7 +53,7 @@ function Games(props){
                     </div>
                     <div className={`${styles.games_newest}`}>
                         <div className={`${styles.games_revtit}`}>
-                            <span className={`${styles.games_rev}`}>
+                            <span className={`${styles.games_rev} good_rate`}>
                                 4.4
                             </span>
                             <span className={`${styles.games_title}`}>
@@ -70,7 +70,7 @@ function Games(props){
                     <h3><FontAwesomeIcon icon={faClockRotateLeft} />Nadchodzące premiery</h3>
                     <div className={`${styles.games_newest}`}>
                         <div className={`${styles.games_revtit}`}>
-                            <span className={`${styles.games_rev}`}>
+                            <span className={`${styles.games_rev} mid_rate`}>
                                 4.4
                             </span>
                             <span className={`${styles.games_title}`}>
@@ -83,7 +83,7 @@ function Games(props){
                     </div>
                     <div className={`${styles.games_newest}`}>
                         <div className={`${styles.games_revtit}`}>
-                            <span className={`${styles.games_rev}`}>
+                            <span className={`${styles.games_rev} mid_rate`}>
                                 4.4
                             </span>
                             <span className={`${styles.games_title}`}>
@@ -96,7 +96,7 @@ function Games(props){
                     </div>
                     <div className={`${styles.games_newest}`}>
                         <div className={`${styles.games_revtit}`}>
-                            <span className={`${styles.games_rev}`}>
+                            <span className={`${styles.games_rev} good_rate`}>
                                 4.4
                             </span>
                             <span className={`${styles.games_title}`}>
@@ -109,7 +109,7 @@ function Games(props){
                     </div>
                     <div className={`${styles.games_newest}`}>
                         <div className={`${styles.games_revtit}`}>
-                            <span className={`${styles.games_rev}`}>
+                            <span className={`${styles.games_rev} bad_rate`}>
                                 4.4
                             </span>
                             <span className={`${styles.games_title}`}>
@@ -126,7 +126,7 @@ function Games(props){
                     <h3><FontAwesomeIcon icon={faSquarePollVertical} />Ostatnie recenzje</h3>
                     <div className={`${styles.games_newest}`}>
                         <div className={`${styles.games_revtit}`}>
-                            <span className={`${styles.games_rev}`}>
+                            <span className={`${styles.games_rev} mid_rate`}>
                                 4.4
                             </span>
                             <span className={`${styles.games_title}`}>
@@ -139,7 +139,7 @@ function Games(props){
                     </div>
                     <div className={`${styles.games_newest}`}>
                         <div className={`${styles.games_revtit}`}>
-                            <span className={`${styles.games_rev}`}>
+                            <span className={`${styles.games_rev} good_rate`}>
                                 4.4
                             </span>
                             <span className={`${styles.games_title}`}>
@@ -152,7 +152,7 @@ function Games(props){
                     </div>
                     <div className={`${styles.games_newest}`}>
                         <div className={`${styles.games_revtit}`}>
-                            <span className={`${styles.games_rev}`}>
+                            <span className={`${styles.games_rev} bad_rate`}>
                                 4.4
                             </span>
                             <span className={`${styles.games_title}`}>
@@ -165,7 +165,7 @@ function Games(props){
                     </div>
                     <div className={`${styles.games_newest}`}>
                         <div className={`${styles.games_revtit}`}>
-                            <span className={`${styles.games_rev}`}>
+                            <span className={`${styles.games_rev} bad_rate`}>
                                 4.4
                             </span>
                             <span className={`${styles.games_title}`}>
