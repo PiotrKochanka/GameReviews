@@ -11,7 +11,7 @@ function RSSFeed() {
     const fetchRSSFeeds = async () => {
       try {
         const responses = await Promise.all([
-          axios.get('http://localhost:8000/rss-feed'),
+          axios.get('http://localhost:8000/api/rss-feed'),
           // axios.get('http://localhost:8000/rss-feed2')
         ]);
 

@@ -15,6 +15,11 @@ import logo from './assets/images/logo.png';
 import RSSFeed from './components/RSSFeed/Rssfeed';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import Login from './components/Auth/Login/Login';
+import Register from './components/Auth/Register/Register';
+import LoginCMS from './pages/LoginCMS';  // Import strony logowania do Admina
+// import AdminDashboard from './pages/AdminDashboard'; // Import dashboardu Admina
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import RSSFeed from './components/RSSFeed';
 
 function App() {
@@ -62,23 +67,41 @@ function App() {
     ),
     footer: (
       <Footer onSocial={socials} onMenu={menu}/>
-    )
+    ),
   };
 
   return (
     <div className="App">
-        <Layout>
-          {layout.header}
-          {layout.baner}
-          <main>
-            {layout.best}
-            {layout.games}
-            {layout.rss}
-            {layout.about}
-            {layout.news}
-          </main>
-          {layout.footer}
-        </Layout>
+        <Router> 
+            <Routes>
+              <Route 
+                path="/" 
+                element={
+                  <div className="App">
+                    <Layout>
+                      {layout.header}
+                      {layout.baner}
+                      <main>
+                        {layout.best}
+                        {layout.games}
+                        {layout.rss}
+                        {layout.about}
+                        {layout.news}
+                      </main>
+                      {layout.footer}
+                    </Layout>
+                    <Register />
+                  </div>
+                } 
+              />
+              <Route path="/admin" element={
+                <div class="cmsLogin">
+                <LoginCMS />
+                </div>
+                } />
+              {/* <Route path="/admin/dashboard" element={<AdminDashboard />} /> */}
+            </Routes>
+        </Router>
     </div>
   );
 }
