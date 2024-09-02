@@ -10,6 +10,7 @@ import News from './components/News/News';
 import Games from './components/Games/Games';
 import About from './components/About/About';
 import Best from './components/Best/Best';
+import Footer from './components/Footer/Footer';
 import logo from './assets/images/logo.png';
 import RSSFeed from './components/RSSFeed/Rssfeed';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -24,14 +25,17 @@ function App() {
     </a>
   );
 
+  let socials = <Socials />;
+  let menu = <Menu />;
+
   let layout = {
     header: (
       <Header>
         {logoElement}
         <div>
-          <Socials />
+          {socials}
           <div>
-            <Menu />
+            {menu}
             <Searchbar />
             <a class="user" href="#" alt="Logowanie"><FontAwesomeIcon icon={faUser} /></a>
           </div>
@@ -56,6 +60,9 @@ function App() {
     rss: (
       <RSSFeed />
     ),
+    footer: (
+      <Footer onSocial={socials} onMenu={menu}/>
+    )
   };
 
   return (
@@ -70,6 +77,7 @@ function App() {
             {layout.about}
             {layout.news}
           </main>
+          {layout.footer}
         </Layout>
     </div>
   );
