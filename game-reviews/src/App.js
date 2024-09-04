@@ -15,11 +15,14 @@ import logo from './assets/images/logo.png';
 import RSSFeed from './components/RSSFeed/Rssfeed';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import Login from './components/Auth/Login/Login';
-import Register from './components/Auth/Register/Register';
-import LoginCMS from './pages/LoginCMS';  // Import strony logowania do Admina
+import Login from './cms/components/Auth/Login/Login';
+import Register from './cms/components/Auth/Register/Register';
+import Dashboard from './cms/pages/Dashboard/Dashboard';
+import LoginCMS from './cms/pages/LoginCMS';  // Import strony logowania do Admina
+import RegisterCMS from './cms/pages/RegisterCMS';
 // import AdminDashboard from './pages/AdminDashboard'; // Import dashboardu Admina
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ProtectedRoute from './cms/components/ProtectRoute/ProtectRoute';
 // import RSSFeed from './components/RSSFeed';
 
 function App() {
@@ -89,17 +92,21 @@ function App() {
                         {layout.news}
                       </main>
                       {layout.footer}
+                      <Register />
                     </Layout>
-                    <Register />
                   </div>
                 } 
               />
+              {/*CMS*/}
               <Route path="/admin" element={
-                <div class="cmsLogin">
                 <LoginCMS />
-                </div>
                 } />
-              {/* <Route path="/admin/dashboard" element={<AdminDashboard />} /> */}
+              <Route path="/admin/dashboard" element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+                } />
+              {/**/}
             </Routes>
         </Router>
     </div>

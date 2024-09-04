@@ -17,7 +17,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'], // W produkcji powinno być określone bardziej precyzyjnie
+    'allowed_origins' => ['http://localhost:3000'], // W produkcji powinno być określone bardziej precyzyjnie
 
     'allowed_origins_patterns' => [],
 

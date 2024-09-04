@@ -1,0 +1,38 @@
+.header{
+    width: 100%;
+    background-color: rgb(35 35 35);
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+.header > a{
+    text-decoration-color: transparent;
+    color: black;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.4rem;
+    background-color: white;
+    padding: 0 24px;
+}
+.header > ul{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    gap: 16px;
+}
+.header > ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration-color: transparent;
+    background-color: rgb(110, 4, 119);
+    height: 48px;
+    padding: 0 24px;
+    border-radius: 0.4rem;
+    font-size: 16px;
+    font-weight: 600;
+}

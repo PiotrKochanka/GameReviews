@@ -1,0 +1,10 @@
+.container{
+    background-color: rgb(230, 230, 230);
+    min-height: 100vh;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+.container_login h2{
+
+}
