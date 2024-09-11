@@ -18,14 +18,33 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import Login from './cms/components/Auth/Login/Login';
 import Register from './cms/components/Auth/Register/Register';
 import Dashboard from './cms/pages/Dashboard/Dashboard';
+import EditGame from './cms/components/Games/EditGame';
 import LoginCMS from './cms/pages/LoginCMS';  // Import strony logowania do Admina
 import RegisterCMS from './cms/pages/RegisterCMS';
 // import AdminDashboard from './pages/AdminDashboard'; // Import dashboardu Admina
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './cms/components/ProtectRoute/ProtectRoute';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 // import RSSFeed from './components/RSSFeed';
 
 function App() {
+  const [games, setGames] = useState([]);
+
+  useEffect(() => {
+      // Funkcja do pobierania danych z API
+      const fetchGames = async () => {
+          try {
+              const response = await axios.get('http://localhost:8000/api/games');
+              setGames(response.data);
+          } catch (error) {
+              console.error('Błąd podczas pobierania aktualności:', error);
+          }
+      };
+
+      fetchGames();
+  }, []);
+
   const logoElement = (
     <a href="#" className="logo">
       <img src={logo} alt="Logo" />
@@ -35,6 +54,10 @@ function App() {
 
   let socials = <Socials />;
   let menu = <Menu />;
+  
+  function score(score){
+    return score > 7 ? 'good_rate' : score > 4.5 ? 'mid_rate' : 'bad_rate';
+  }
 
   let layout = {
     header: (
@@ -57,13 +80,13 @@ function App() {
       <News />
     ),
     games: (
-      <Games />
+        <Games />
     ),
     about: (
       <About onLogo={logoElement}/>
     ),
     best: (
-      <Best />
+      <Best games={games}/>
     ),
     rss: (
       <RSSFeed />
@@ -106,6 +129,11 @@ function App() {
                   <Dashboard />
                 </ProtectedRoute>
                 } />
+              <Route path="/admin/dashboard/games/:id" element={
+                <ProtectedRoute>
+                  <EditGame />
+                </ProtectedRoute>
+              } />
               {/**/}
             </Routes>
         </Router>

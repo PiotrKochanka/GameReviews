@@ -119,8 +119,10 @@ header .logo:before{
 
 .slick-track {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
+
+
 
 .slick-prev, .slick-next {
   position: absolute;

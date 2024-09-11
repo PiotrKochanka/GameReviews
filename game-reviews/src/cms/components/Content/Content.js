@@ -1,5 +1,6 @@
 import styles from './content.module.css';
 import News from '../News/News';
+import Games from '../Games/Games';
 
 function Content({ contentType }){
 
@@ -22,7 +23,7 @@ function Content({ contentType }){
             content = <News />;
             break;
         case 'games':
-            content = <div>Gry</div>;
+            content = <Games />;
             break;
         case 'menu':
             content = <div>Menu</div>;

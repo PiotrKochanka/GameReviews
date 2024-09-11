@@ -4,73 +4,68 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
     public function index()
     {
-        // Pobierz wszystkie rekordy z tabeli 'news'
         $news = News::all();
-        
-        // Zwróć rekordy jako JSON
         return response()->json($news);
     }
 
     public function show($id)
     {
-        // Pobierz pojedynczy rekord na podstawie ID
         $news = News::find($id);
-
         if (!$news) {
-            return response()->json(['message' => 'Nie znaleziono'], 404);
+            return response()->json(['message' => 'Not Found'], 404);
         }
-
-        // Zwróć rekord jako JSON
         return response()->json($news);
     }
 
     public function store(Request $request)
     {
-        try {
-            $validatedData = $request->validate([
-                'title' => 'required|string|max:255',
-                'photo' => 'nullable|string|max:255',
-                'date' => 'required|date',
-                'content' => 'required|string',
-                'shortcut' => 'nullable|string|max:255',
-            ]);
-    
-            $news = News::create($validatedData);
-    
-            return response()->json($news, 201);
-        } catch (\Exception $e) {
-            \Log::error('Error creating news: ' . $e->getMessage());
-            return response()->json(['message' => 'Internal Server Error'], 500);
-        }
-    }
-
-    public function update(Request $request, $id)
-    {
-        // Pobierz rekord na podstawie ID
-        $news = News::find($id);
-
-        if (!$news) {
-            return response()->json(['message' => 'Nie znaleziono'], 404);
-        }
-
-        // Walidacja danych
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            'photo' => 'nullable|string|max:255',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'date' => 'required|date',
             'content' => 'required|string',
             'shortcut' => 'nullable|string|max:255',
         ]);
 
-        // Aktualizacja rekordu
-        $news->update($validatedData);
+        if ($request->hasFile('photo')) {
+            $photoPath = $request->file('photo')->store('images', 'public');
+            $validatedData['photo'] = $photoPath;
+        }
 
-        // Zwróć zaktualizowany rekord jako JSON
+        $news = News::create($validatedData);
+        return response()->json($news, 201);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $news = News::find($id);
+        if (!$news) {
+            return response()->json(['message' => 'Not Found'], 404);
+        }
+    
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'date' => 'required|date',
+            'content' => 'required|string',
+            'shortcut' => 'nullable|string|max:255',
+        ]);
+    
+        if ($request->hasFile('photo')) {
+            if ($news->photo) {
+                Storage::disk('public')->delete($news->photo);
+            }
+            $photoPath = $request->file('photo')->store('images', 'public');
+            $validatedData['photo'] = $photoPath;
+        }
+    
+        $news->update($validatedData);
         return response()->json($news);
     }
 }

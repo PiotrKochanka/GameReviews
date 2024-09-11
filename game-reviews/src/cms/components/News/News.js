@@ -6,7 +6,7 @@ function News() {
     const [news, setNews] = useState([]);
     const [editingId, setEditingId] = useState(null);
     const [editData, setEditData] = useState({ title: '', photo: '', date: '', content: '', shortcut: '' });
-    const [addData, setAddData] = useState({ title: '', photo: '', date: '', content: '', shortcut: '' });
+    const [addData, setAddData] = useState({ title: '', photo: null, date: '', content: '', shortcut: '' });
 
     useEffect(() => {
         fetchNews();
@@ -31,9 +31,29 @@ function News() {
         setEditData((prev) => ({ ...prev, [name]: value }));
     };
 
+    const handleFileChange = (e) => {
+        setEditData((prev) => ({ ...prev, photo: e.target.files[0] }));
+    };
+
     const handleSave = async () => {
         try {
-            await axios.put(`http://localhost:8000/api/news/${editingId}`, editData);
+            const formData = new FormData();
+            for (const key in editData) {
+                if (editData[key] !== null) {
+                    formData.append(key, editData[key]);
+                }
+            }
+    
+            // Debugging: print out form data
+            for (let pair of formData.entries()) {
+                console.log(`${pair[0]}: ${pair[1]}`);
+            }
+    
+            await axios.put(`http://localhost:8000/api/news/${editingId}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
             setEditingId(null);
             fetchNews();
         } catch (error) {
@@ -46,18 +66,24 @@ function News() {
         setAddData((prev) => ({ ...prev, [name]: value }));
     };
 
+    const handleFileAddChange = (e) => {
+        setAddData((prev) => ({ ...prev, photo: e.target.files[0] }));
+    };
+
     const handleAdd = async () => {
         try {
-            const response = await axios.post('http://localhost:8000/api/news', {
-                title: addData.title,
-                photo: addData.photo,
-                date: addData.date,
-                content: addData.content,
-                shortcut: addData.shortcut
+            const formData = new FormData();
+            for (const key in addData) {
+                formData.append(key, addData[key]);
+            }
+            const response = await axios.post('http://localhost:8000/api/news', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
             });
             console.log('News added:', response.data);
-            fetchNews(); // Odśwież dane
-            setAddData({ title: '', photo: '', date: '', content: '', shortcut: '' }); // Wyczyść dane
+            fetchNews();
+            setAddData({ title: '', photo: null, date: '', content: '', shortcut: '' });
         } catch (error) {
             console.error('Error adding news:', error);
         }
@@ -72,10 +98,10 @@ function News() {
                         <li key={item.id}>
                             <article className={`${styles.news_article}`}>
                                 <h3>{item.title}</h3>
+                                {item.photo && <img src={`http://localhost:8000/storage/${item.photo}`} alt={item.title} />}
                                 <p>{item.shortcut}</p>
                                 <button onClick={() => handleEdit(item)}>Edytuj</button>
                                 
-                                {/* Form for editing */}
                                 {editingId === item.id && (
                                     <div className={`${styles.edit_form}`}>
                                         <h3>Edytuj aktualność</h3>
@@ -87,11 +113,10 @@ function News() {
                                             placeholder="Title"
                                         />
                                         <input
-                                            type="text"
+                                            type="file"
                                             name="photo"
-                                            value={editData.photo || ""}
-                                            onChange={handleChange}
-                                            placeholder="Photo URL"
+                                            onChange={handleFileChange}
+                                            placeholder="Photo"
                                         />
                                         <input
                                             type="date"
@@ -133,11 +158,10 @@ function News() {
                     placeholder="Title"
                 />
                 <input
-                    type="text"
+                    type="file"
                     name="photo"
-                    value={addData.photo}
-                    onChange={handleAddChange}
-                    placeholder="Photo URL"
+                    onChange={handleFileAddChange}
+                    placeholder="Photo"
                 />
                 <input
                     type="date"

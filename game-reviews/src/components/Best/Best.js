@@ -1,103 +1,47 @@
 import styles from './best.module.css';
-import React from 'react';
 import Slider from 'react-slick';
+import React from 'react';
 
-function Best(props){
+function Best({ games }) {
+
     const settings = {
-        dots: true,  // Pokazuje kropki na dole
-        infinite: true,  // Włącza nieskończone przewijanie
-        speed: 500,  // Czas trwania animacji w ms
-        slidesToShow: 6,  // Liczba widocznych elementów na raz
-        slidesToScroll: 2,  // Liczba elementów do przewinięcia naraz
-        nextArrow: <div className={`${styles.arrowRight}`}>&#10095;</div>,  // Niestandardowa strzałka w prawo
-        prevArrow: <div className={`${styles.arrowLeft}`}>&#10094;</div>,  // Niestandardowa strzałka w lewo
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 6,
+        slidesToScroll: 2,
+        nextArrow: <div className={`${styles.arrowRight}`}>&#10095;</div>,
+        prevArrow: <div className={`${styles.arrowLeft}`}>&#10094;</div>,
     };
 
-    return(
+    const baseUrl = 'http://127.0.0.1:8000/storage/';
+
+
+    return (
         <div className={`${styles.bests_container}`}>
             <h2 className={`${styles.title} start-title container`}>Najlepiej oceniane</h2>
             <section className={`container`}>
                 <Slider {...settings}>
-                <article className={`${styles.best}`}>
-                    <div className={`${styles.best_icon_cont}`}>
-                        <div className={`${styles.best_icon}`}>
-                        </div>
-                    </div>
-                    <div className={`${styles.best_content}`}>
-                        <h2 className={`${styles.best_content_title}`}>Cyberpunk 2077</h2>
-                        <p className={`${styles.best_content_rate} good_rate`}>8.2</p>
-                    </div>
-                </article>
-                <article className={`${styles.best}`}>
-                    <div className={`${styles.best_icon_cont}`}>
-                        <div className={`${styles.best_icon}`}>
-                        </div>
-                    </div>
-                    <div className={`${styles.best_content}`}>
-                        <h2 className={`${styles.best_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.best_content_rate} mid_rate`}>6.2</p>
-                    </div>
-                </article>
-                <article className={`${styles.best}`}>
-                    <div className={`${styles.best_icon_cont}`}>
-                        <div className={`${styles.best_icon}`}>
-                        </div>
-                    </div>
-                    <div className={`${styles.best_content}`}>
-                        <h2 className={`${styles.best_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.best_content_rate} bad_rate`}>2.4</p>
-                    </div>
-                </article>
-                <article className={`${styles.best}`}>
-                    <div className={`${styles.best_icon_cont}`}>
-                        <div className={`${styles.best_icon}`}>
-                        </div>
-                    </div>
-                    <div className={`${styles.best_content}`}>
-                        <h2 className={`${styles.best_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.best_content_rate} bad_rate`}>4.4</p>
-                    </div>
-                </article>
-                <article className={`${styles.best}`}>
-                    <div className={`${styles.best_icon_cont}`}>
-                        <div className={`${styles.best_icon}`}>
-                        </div>
-                    </div>
-                    <div className={`${styles.best_content}`}>
-                        <h2 className={`${styles.best_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.best_content_rate} bad_rate`}>4.4</p>
-                    </div>
-                </article>
-                <article className={`${styles.best}`}>
-                    <div className={`${styles.best_icon_cont}`}>
-                        <div className={`${styles.best_icon}`}>
-                        </div>
-                    </div>
-                    <div className={`${styles.best_content}`}>
-                        <h2 className={`${styles.best_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.best_content_rate} good_rate`}>7.4</p>
-                    </div>
-                </article>
-                <article className={`${styles.best}`}>
-                    <div className={`${styles.best_icon_cont}`}>
-                        <div className={`${styles.best_icon}`}>
-                        </div>
-                    </div>
-                    <div className={`${styles.best_content}`}>
-                        <h2 className={`${styles.best_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.best_content_rate}`}>4.4</p>
-                    </div>
-                </article>
-                <article className={`${styles.best}`}>
-                    <div className={`${styles.best_icon_cont}`}>
-                        <div className={`${styles.best_icon}`}>
-                        </div>
-                    </div>
-                    <div className={`${styles.best_content}`}>
-                        <h2 className={`${styles.best_content_title}`}>Tytuł</h2>
-                        <p className={`${styles.best_content_rate}`}>4.4</p>
-                    </div>
-                </article>
+                    {games.map((item) => (
+                        <article className={`${styles.best}`} key={item.id}>
+                            <div className={`${styles.best_icon_cont}`}>
+                                <div className={`${styles.best_icon}`}>
+                                    <img src={`${baseUrl}${item.image}`} alt={item.title} />
+                                </div>
+                            </div>
+                            <div className={`${styles.best_content}`}>
+                                <h2 className={`${styles.best_content_title}`}>{item.title}</h2>
+                                <p className={`${
+                                    item.score > 7
+                                        ? 'good_rate'
+                                        : item.score > 4.5 ? 'mid_rate'
+                                        : 'bad_rate'
+                                    } ${styles.best_content_rate}`}>
+                                    {parseFloat(item.score).toFixed(1)}
+                                </p>
+                            </div>
+                        </article>
+                    ))}
                 </Slider>
             </section>
         </div>

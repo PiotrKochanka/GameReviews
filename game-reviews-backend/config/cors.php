@@ -13,11 +13,11 @@ return [
     |
     */
 
-    'paths' => ['api/*'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:3000'], // W produkcji powinno być określone bardziej precyzyjnie
+    'allowed_origins' => ['*'], // lub dodaj odpowiednią domenę
 
     'allowed_origins_patterns' => [],
 

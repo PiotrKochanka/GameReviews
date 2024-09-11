@@ -5,9 +5,12 @@ import Header from '../../components/Header/Header';
 import Menu from '../../components/Menu/Menu';
 import Footer from '../../components/Footer/Footer';
 import Content from '../../components/Content/Content';
+import useAutoLogout from '../../../hooks/useAutoLogout';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function Dashboard(props){
+    useAutoLogout(300000);
+
     const [selectedContent, setSelectedContent] = useState('');
 
     const handleMenuClick = (contentType) => {

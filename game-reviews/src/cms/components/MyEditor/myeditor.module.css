@@ -1,0 +1,16 @@
+.editQuill{
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid rgb(231, 231, 231);
+}
+.editQuill > div > div{
+    border: 0px none transparent!important;
+}
+.editQuill > div > div:nth-child(1){
+    border-bottom: 1px solid rgb(231, 231, 231)!important;
+}
+.editQuill > div > div:nth-child(2){
+    min-height: 300px;
+    font-size: 16px;
+}
