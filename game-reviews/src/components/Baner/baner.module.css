@@ -52,15 +52,16 @@
 
 /* Logo gry na banerze */
 .baner_logo{
-    background: #353535;
+    background: #35353594;
+    backdrop-filter: blur(10px);
     right: 0px;
     top: 0px;
     position: relative;
     z-index: 3;
     border-radius: 1rem;
     /* width: 28.5%; */
-    width: 300px;
-    min-width: 300px;
+    width: 440px;
+    min-width: 440px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -68,6 +69,9 @@
     justify-content: flex-start;
     padding: 32px;
     box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.14);
+}
+.baner_logo{
+    display: flex;
 }
 .baner_logo > img{
     width: 200px;

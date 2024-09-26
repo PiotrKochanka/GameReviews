@@ -22,3 +22,147 @@
     display: flex;
     flex-direction: column;
 }
+
+/* Wyświetlanie */
+.newsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.newsContainer > h2{
+    width: 100%;
+    text-align: left;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.newsContainer > h2 svg{
+    font-size: 28px;
+    color: rgb(110, 4, 119);
+}
+.newsContainer > button{
+    padding: 16px 32px;
+    border-radius: 0.5rem;
+    border: 0px none transparent;
+    font-weight: 500;
+    font-size: 18px;
+    color: white;
+    background-color: rgb(110, 4, 119);
+}
+.newsItem{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+    border: 1px solid rgb(231, 231, 231);
+    border-radius: 0.5rem;
+    position: relative;
+    padding: 16px;
+    width: 100%;
+}
+.newsContainer ul{
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+.editContainer{
+    width: 100%;
+}
+.newsItem > img{
+    width: 244px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 0.6rem;
+    border: 1px solid #bda8fe83;
+}
+.addnews_container > form > div > label img{
+    width: max-content;
+    max-height: 160px;
+    object-fit: contain;
+}
+.newsContainer_data{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.newsContainer_buttons{
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    gap: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.newsContainer_buttons > button{
+    border: 0px none transparent;
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+    font-size: 18px;
+    color: rgb(110, 4, 119);
+}
+
+/* Dodawanie i edytowanie */
+.addnews_container, .addnews_container > form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+    width: 100%;
+}
+.addnews_container{
+    border-top: 16px solid rgb(238, 238, 238);
+    padding-top: 32px;
+}
+.addnews_container > h3{
+    text-align: start;
+}
+.addnews_container > div, .addnews_container > form > div{
+    display: flex;
+    gap: 16px;
+}
+.addnews_container > div > input, .addnews_container > div > textarea, .addnews_container > form > div > textarea, .addnews_container > form > div > input, .addnews_container > form > div > label {
+    width: 100%;
+    border: 1px solid rgb(231, 231, 231);
+    border-radius: 0.5rem;
+    padding: 8px 12px;
+}
+.addnews_container > form > div > label{
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+    align-items: center;
+}
+.addnews_container > div > textarea, .addnews_container > form > div > textarea{
+    min-height: 300px;
+}
+.addnews_container > div > span, .addnews_container > form > div > span{
+    min-width: 400px;
+    width: 400px;
+    text-align: end;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 8px 12px;
+    border-radius: 0.5rem;
+}
+.addnews_add, .addnews_back{
+    border: 0px none transparent;
+    padding: 16px;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 18px;
+}
+.addnews_add{
+    color: white;
+    background-color: rgb(110, 4, 119);
+}
+.addnews_back{
+    color: white;
+    background-color: rgb(35 35 35);
+}

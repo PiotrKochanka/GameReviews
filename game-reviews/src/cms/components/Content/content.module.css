@@ -1,6 +1,8 @@
 .content_container{
     width: 100%;
     padding: 32px 32px;
+    max-height: calc(100vh - 80px - 80px);
+    overflow-x: scroll;
 }
 .content{
     background-color: white;

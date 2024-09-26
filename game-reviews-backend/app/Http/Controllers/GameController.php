@@ -96,5 +96,16 @@ class GameController extends Controller
     
         return response()->json(['success' => true, 'game' => $game]);
     }
+
+    public function destroy($id)
+    {
+        try {
+            $game = Game::findOrFail($id); // Upewnij się, że gra istnieje
+            $game->delete(); // Usuń grę
+            return response()->json(['message' => 'Gra została usunięta'], 200);
+        } catch (Exception $e) {
+            return response()->json(['error' => 'Nie udało się usunąć gry: ' . $e->getMessage()], 500);
+        }
+    }
     
 }

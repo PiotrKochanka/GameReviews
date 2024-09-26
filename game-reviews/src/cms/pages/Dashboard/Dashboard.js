@@ -19,7 +19,7 @@ function Dashboard(props){
 
     let layout = {
         header: (
-            <Header />
+            <Header onMenuClick={handleMenuClick}/>
         ),
         menu: (
             <Menu onMenuClick={handleMenuClick}/>

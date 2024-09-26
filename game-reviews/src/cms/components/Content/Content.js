@@ -1,6 +1,8 @@
 import styles from './content.module.css';
 import News from '../News/News';
 import Games from '../Games/Games';
+import MenuStructure from '../Structure/MenuStructure';
+import Logs from '../Logs/Logs';
 
 function Content({ contentType }){
 
@@ -16,8 +18,8 @@ function Content({ contentType }){
         case 'permissions':
             content = <div>Prawa dostępu</div>;
             break;
-        case 'test':
-            content = <div>Test</div>;
+        case 'struktura':
+            content = <MenuStructure />;
             break;
         case 'news':
             content = <News />;
@@ -30,6 +32,9 @@ function Content({ contentType }){
             break;
         case 'content':
             content = <div>Treści</div>;
+            break;
+        case 'logs':
+            content = <Logs />;
             break;
         default:
             content = <div>Wybierz opcję z menu</div>;

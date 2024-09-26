@@ -1,18 +1,63 @@
-.mainMenu{
+.mainMenu, .mainMenu_2{
     list-style-type: none;
     padding: 0px;
     margin: 0px;
     display: flex;
 }
 .mainMenu > li{
-    padding: 0 16px;
+    /* padding: 0 16px; */
     display: flex;
     align-items: center;
+    position: relative;
 }
-.mainMenu > li > a{
+.mainMenu > li > a, .mainMenu_2 li a{
     text-decoration-color: transparent;
     color: white;
     font-weight: 800;
     font-size: 16px;
     font-family: "Poppins", sans-serif;
+    transition: 0.3s;
+    padding: 8px 16px;
+    text-align: left;
+    display: block;
+    width: 100%;
+}
+.mainMenu > li:hover > a, .mainMenu_2 li a:hover{
+    color: #bda8fe;
+}
+.mainMenu > li ul{
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    flex-direction: column;
+    padding: 16px 8px;
+    width: 260px;
+    background-color: rgba(24, 22, 22, 0.747);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 0.6rem;
+    border-top-left-radius: 0;
+}
+@keyframes menu_2_v {
+    0%   {left: 56px; opacity: 0;}
+    100% {left: 0px; opacity: 1;}
+}
+/* @keyframes menu_2_h {
+    0%   {top: 100%; opacity: 1;}
+    100% {top: 140%; opacity: 0;}
+} */
+.mainMenu_2.hidden {
+    display: none;
+    animation-name: menu_2_h;
+    animation-duration: 0.3s;
+}
+  
+.mainMenu_2.visible {
+    display: flex;
+    animation-name: menu_2_v;
+    animation-duration: 0.3s;
+}
+.mainMenu > li ul li a{
+    font-size: 16px;
+    font-weight: 400;
 }

@@ -4,7 +4,7 @@ import EditGame from './EditGame'; // Zaimportuj komponent do edycji gier
 import AddGame from './AddGame'; // Zaimportuj nowy komponent do dodawania gier
 import styles from './games.module.css'; // Importuj CSS, jeśli potrzebujesz
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrash, faGamepad } from '@fortawesome/free-solid-svg-icons';
 
 function Games() {
     const [games, setGames] = useState([]);
@@ -23,6 +23,16 @@ function Games() {
         } catch (error) {
             console.error('Error fetching games:', error);
         }
+    };
+
+    const handleDeleteGamesItem = (itemId) => {
+        axios.delete(`http://localhost:8000/api/games/${itemId}`)
+          .then(() => {
+            fetchGames(); // Odświeżenie danych po usunięciu elementu
+          })
+          .catch(error => {
+            console.error('Błąd podczas usuwania elementu:', error);
+          });
     };
 
     const handleEdit = (id) => {
@@ -56,7 +66,7 @@ function Games() {
 
     return (
         <div className={`${styles.gamesContainer}`}>
-            <h2>Lista Gier</h2>
+            <h2><FontAwesomeIcon icon={faGamepad} />Lista Gier</h2>
             <ul>
                 {games.map(game => (
                     <li key={game.id} className={styles.gameItem}>
@@ -74,6 +84,7 @@ function Games() {
                         </div>
                         <div className={`${styles.gamesContainer_buttons}`}>
                             <button onClick={() => handleEdit(game.id)}><FontAwesomeIcon icon={faPenToSquare} /></button>
+                            <button onClick={() => handleDeleteGamesItem(game.id)}><FontAwesomeIcon icon={faTrash} /></button>
                         </div>
                         {editingId === game.id && selectedGame && (
                             <div className={styles.editContainer}>

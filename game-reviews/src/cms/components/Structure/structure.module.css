@@ -1,0 +1,34 @@
+.structureUl, .structureUl ul{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.structureUl li, .structureUl ul li{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+}
+.structureUl ul{
+    padding-left: 8px;
+}
+.edit_container{
+    width: 100%;
+}
+.structureContainer > h2{
+    width: 100%;
+    text-align: left;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.structureContainer > h2 svg{
+    font-size: 28px;
+    color: rgb(110, 4, 119);
+}

@@ -8,6 +8,13 @@
     width: 100%;
     text-align: left;
     margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.gamesContainer > h2 svg{
+    font-size: 28px;
+    color: rgb(110, 4, 119);
 }
 .gamesContainer > button{
     padding: 16px 32px;
@@ -60,16 +67,17 @@
     position: absolute;
     right: 16px;
     top: 16px;
+    gap: 16px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
 }
 .gamesContainer_buttons > button{
     border: 0px none transparent;
     background-color: transparent;
     margin: 0px;
     padding: 0px;
-    font-size: 24px;
+    font-size: 18px;
     color: rgb(110, 4, 119);
 }
 

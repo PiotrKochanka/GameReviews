@@ -80,7 +80,7 @@ function App() {
       <News />
     ),
     games: (
-        <Games />
+        <Games games={games}/>
     ),
     about: (
       <About onLogo={logoElement}/>
@@ -115,7 +115,7 @@ function App() {
                         {layout.news}
                       </main>
                       {layout.footer}
-                      <Register />
+                      {/* <Register /> */}
                     </Layout>
                   </div>
                 } 

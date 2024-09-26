@@ -23,4 +23,5 @@
 .header_container > div > div{
     display: flex;
     gap: 16px;
+    align-items: center;
 }

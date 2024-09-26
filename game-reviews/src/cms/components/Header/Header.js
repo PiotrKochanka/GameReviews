@@ -1,9 +1,11 @@
 import styles from './header.module.css';
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function Header(props){
+function Header({ onMenuClick }){
     const [userName, setUserName] = useState('');
+    
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -26,7 +28,7 @@ function Header(props){
         <header className={`${styles.header}`}>
             <ul>
                 <li><a href="/" target="_blank" alt="odnośnik do strony głównej">Przejdź do strony</a></li>
-                <li><a href="/" alt="odnośnik do strony głównej">Logi</a></li>
+                <li><button onClick={() => onMenuClick('logs')}>Logi</button></li>
                 <li><a href="/" alt="odnośnik do strony głównej">Dziennik zmian</a></li>
                 <li><a href="/" alt="odnośnik do strony głównej">core</a></li>
                 <li><a href="/" alt="odnośnik do strony głównej">Zapytanie SQL</a></li>

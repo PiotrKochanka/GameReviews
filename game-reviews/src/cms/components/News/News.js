@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import styles from './news.module.css';
+import EditNews from './EditNews'; // Zaimportuj komponent do edycji gier
+import AddNews from './AddNews'; // Zaimportuj nowy komponent do dodawania gier
+import styles from './news.module.css'; // Importuj CSS, jeśli potrzebujesz
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenToSquare, faTrash, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 function News() {
     const [news, setNews] = useState([]);
     const [editingId, setEditingId] = useState(null);
-    const [editData, setEditData] = useState({ title: '', photo: '', date: '', content: '', shortcut: '' });
-    const [addData, setAddData] = useState({ title: '', photo: null, date: '', content: '', shortcut: '' });
+    const [adding, setAdding] = useState(false);
+    const [selectedNews, setSelectedNews] = useState(null);
 
     useEffect(() => {
         fetchNews();
@@ -17,174 +21,90 @@ function News() {
             const response = await axios.get('http://localhost:8000/api/news');
             setNews(response.data);
         } catch (error) {
-            console.error('Error fetching news:', error);
+            console.error('Error fetching News:', error);
         }
     };
 
-    const handleEdit = (item) => {
-        setEditingId(item.id);
-        setEditData({ ...item });
+    const handleEdit = (id) => {
+        setEditingId(id);
+        const newsToEdit = news.find(news => news.id === id);
+        setSelectedNews(newsToEdit);
     };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setEditData((prev) => ({ ...prev, [name]: value }));
+    const handleDeleteNewsItem = (itemId) => {
+        axios.delete(`http://localhost:8000/api/news/${itemId}`)
+          .then(() => {
+            fetchNews(); // Odświeżenie danych po usunięciu elementu
+          })
+          .catch(error => {
+            console.error('Błąd podczas usuwania elementu:', error);
+          });
     };
 
-    const handleFileChange = (e) => {
-        setEditData((prev) => ({ ...prev, photo: e.target.files[0] }));
+    const handleCloseEdit = () => {
+        setEditingId(null);
+        setSelectedNews(null);
     };
 
-    const handleSave = async () => {
-        try {
-            const formData = new FormData();
-            for (const key in editData) {
-                if (editData[key] !== null) {
-                    formData.append(key, editData[key]);
-                }
-            }
-    
-            // Debugging: print out form data
-            for (let pair of formData.entries()) {
-                console.log(`${pair[0]}: ${pair[1]}`);
-            }
-    
-            await axios.put(`http://localhost:8000/api/news/${editingId}`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-            setEditingId(null);
-            fetchNews();
-        } catch (error) {
-            console.error('Error updating news:', error);
-        }
+    const handleUpdate = () => {
+        fetchNews(); // Odśwież dane po zapisaniu
+        handleCloseEdit();
     };
 
-    const handleAddChange = (e) => {
-        const { name, value } = e.target;
-        setAddData((prev) => ({ ...prev, [name]: value }));
+    const handleAdd = () => {
+        setAdding(true);
     };
 
-    const handleFileAddChange = (e) => {
-        setAddData((prev) => ({ ...prev, photo: e.target.files[0] }));
+    const handleCloseAdd = () => {
+        setAdding(false);
     };
 
-    const handleAdd = async () => {
-        try {
-            const formData = new FormData();
-            for (const key in addData) {
-                formData.append(key, addData[key]);
-            }
-            const response = await axios.post('http://localhost:8000/api/news', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-            console.log('News added:', response.data);
-            fetchNews();
-            setAddData({ title: '', photo: null, date: '', content: '', shortcut: '' });
-        } catch (error) {
-            console.error('Error adding news:', error);
-        }
+    const handleNewsAdded = () => {
+        fetchNews(); // Odśwież dane po dodaniu
+        handleCloseAdd();
     };
 
     return (
-        <div className={`${styles.news_container}`}>
-            <h2 className={`${styles.title}`}>Aktualności</h2>
-            <section className={`${styles.news}`}>
-                <ul>
-                    {news.map((item) => (
-                        <li key={item.id}>
-                            <article className={`${styles.news_article}`}>
-                                <h3>{item.title}</h3>
-                                {item.photo && <img src={`http://localhost:8000/storage/${item.photo}`} alt={item.title} />}
-                                <p>{item.shortcut}</p>
-                                <button onClick={() => handleEdit(item)}>Edytuj</button>
-                                
-                                {editingId === item.id && (
-                                    <div className={`${styles.edit_form}`}>
-                                        <h3>Edytuj aktualność</h3>
-                                        <input
-                                            type="text"
-                                            name="title"
-                                            value={editData.title || ""}
-                                            onChange={handleChange}
-                                            placeholder="Title"
-                                        />
-                                        <input
-                                            type="file"
-                                            name="photo"
-                                            onChange={handleFileChange}
-                                            placeholder="Photo"
-                                        />
-                                        <input
-                                            type="date"
-                                            name="date"
-                                            value={editData.date}
-                                            onChange={handleChange}
-                                            placeholder="Date"
-                                        />
-                                        <textarea
-                                            name="content"
-                                            value={editData.content || ""}
-                                            onChange={handleChange}
-                                            placeholder="Content"
-                                        />
-                                        <input
-                                            type="text"
-                                            name="shortcut"
-                                            value={editData.shortcut || ""}
-                                            onChange={handleChange}
-                                            placeholder="Shortcut"
-                                        />
-                                        <button onClick={handleSave}>Save</button>
-                                        <button onClick={() => setEditingId(null)}>Cancel</button>
-                                    </div>
-                                )}
-                            </article>
-                        </li>
-                    ))}
-                </ul>
-            </section>
-
-            <div className={`${styles.add_form}`}>
-                <h3>Dodaj aktualność</h3>
-                <input
-                    type="text"
-                    name="title"
-                    value={addData.title}
-                    onChange={handleAddChange}
-                    placeholder="Title"
+        <div className={`${styles.newsContainer}`}>
+            <h2><FontAwesomeIcon icon={faNewspaper} />Lista Aktualności</h2>
+            <ul>
+                {news.map(news => (
+                    <li key={news.id} className={styles.newsItem}>
+                        {news.photo && (
+                            <img
+                                src={`http://127.0.0.1:8000/storage/${news.photo}`}
+                                alt={news.title}
+                                className={styles.newsPhoto}
+                            />
+                        )}
+                        <div className={`${styles.newsContainer_data}`}>
+                            <span>{news.date}</span>
+                            <h3>{news.title}</h3>
+                            <p>{news.shortcut}</p>
+                        </div>
+                        <div className={`${styles.newsContainer_buttons}`}>
+                            <button onClick={() => handleEdit(news.id)}><FontAwesomeIcon icon={faPenToSquare} /></button>
+                            <button onClick={() => handleDeleteNewsItem(news.id)}><FontAwesomeIcon icon={faTrash} /></button>
+                        </div>
+                        {editingId === news.id && selectedNews && (
+                            <div className={styles.editContainer}>
+                                <EditNews
+                                    newsId={selectedNews.id}
+                                    onClose={handleCloseEdit}
+                                    onUpdate={handleUpdate}
+                                />
+                            </div>
+                        )}
+                    </li>
+                ))}
+            </ul>
+            <button onClick={handleAdd}>Dodaj Grę</button>
+            {adding && (
+                <AddNews
+                    onClose={handleCloseAdd}
+                    onAdd={handleNewsAdded}
                 />
-                <input
-                    type="file"
-                    name="photo"
-                    onChange={handleFileAddChange}
-                    placeholder="Photo"
-                />
-                <input
-                    type="date"
-                    name="date"
-                    value={addData.date}
-                    onChange={handleAddChange}
-                    placeholder="Date"
-                />
-                <textarea
-                    name="content"
-                    value={addData.content}
-                    onChange={handleAddChange}
-                    placeholder="Content"
-                />
-                <input
-                    type="text"
-                    name="shortcut"
-                    value={addData.shortcut}
-                    onChange={handleAddChange}
-                    placeholder="Shortcut"
-                />
-                <button onClick={handleAdd}>Dodaj</button>
-            </div>
+            )}
         </div>
     );
 }

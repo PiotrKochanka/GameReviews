@@ -21,6 +21,8 @@ function News(props){
         fetchNews();
     }, []);
 
+    const baseUrl = 'http://127.0.0.1:8000/storage/';
+
     return(
         <div className={`${styles.news_container} container`}>
             <h2 className={`${styles.title} start-title container`}>Aktualności</h2>
@@ -29,6 +31,7 @@ function News(props){
                 <article key={item.id} className={`${styles.news_article}`}>
                     <div className={`${styles.news_icon_cont}`}>
                         <div className={`${styles.news_icon}`}>
+                            <img src={`${baseUrl}${item.photo}`} alt={item.title} />
                         </div>
                     </div>
                     <div className={`${styles.news_content}`}>

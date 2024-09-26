@@ -1,6 +1,7 @@
 import styles from './best.module.css';
 import Slider from 'react-slick';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Best({ games }) {
 
@@ -16,13 +17,14 @@ function Best({ games }) {
 
     const baseUrl = 'http://127.0.0.1:8000/storage/';
 
+    const filteredGames = games.filter(item => item.score >= 8);
 
     return (
         <div className={`${styles.bests_container}`}>
             <h2 className={`${styles.title} start-title container`}>Najlepiej oceniane</h2>
             <section className={`container`}>
                 <Slider {...settings}>
-                    {games.map((item) => (
+                    {filteredGames.map((item) => (
                         <article className={`${styles.best}`} key={item.id}>
                             <div className={`${styles.best_icon_cont}`}>
                                 <div className={`${styles.best_icon}`}>
@@ -47,5 +49,15 @@ function Best({ games }) {
         </div>
     );
 }
+
+// Define PropTypes for the component
+Best.propTypes = {
+    games: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        score: PropTypes.number.isRequired,
+    })).isRequired,
+};
 
 export default Best;

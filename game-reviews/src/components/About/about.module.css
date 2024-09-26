@@ -29,7 +29,8 @@
 .about_ratio{
     height: 300px;
     width: 400px;
-    background-color: #353535;
+    background-color: #3535359a;
+    backdrop-filter: blur(10px);
     box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.14);
     border-radius: 0.6rem;
     padding: 32px 32px 48px 32px;
