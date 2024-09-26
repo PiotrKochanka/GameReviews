@@ -42,3 +42,8 @@ Route::get('/menu-positions', [MenuPositionController::class, 'index']);
 Route::post('/menu-positions', [MenuPositionController::class, 'store']);
 Route::put('/menu-positions/{id}', [MenuPositionController::class, 'update']);
 Route::delete('/menu-positions/{id}', [MenuPositionController::class, 'destroy']);
+
+Route::get('/logs', function () {
+    $logs = file_get_contents(storage_path('logs/laravel.log'));
+    return response()->json($logs);
+});
