@@ -27,6 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
     color: white;
     text-decoration-color: transparent;
     background-color: rgb(110, 4, 119);
@@ -36,4 +37,7 @@
     border-radius: 0.4rem;
     font-size: 16px;
     font-weight: 600;
+}
+.header > ul li a svg, .header > ul li button svg{
+    font-size: 14px;
 }

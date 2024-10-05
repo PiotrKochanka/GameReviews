@@ -135,7 +135,7 @@ function EditGame({ gameId, onClose, onUpdate }) {
                         <input type="file" name="banner_image" onChange={handleFileChange} />
                     </label>
                 </div>
-                <div><span>Treść</span>
+                <div>
                     <MyEditor value={game.content} onChange={handleEditorChange} />
                 </div>
                 <button className={`${styles.addgame_add}`} type="submit">Save</button>

@@ -14,9 +14,6 @@
     gap: 16px;
     justify-content: space-between;
 }
-.structureUl ul{
-    padding-left: 8px;
-}
 .edit_container{
     width: 100%;
 }
@@ -31,4 +28,153 @@
 .structureContainer > h2 svg{
     font-size: 28px;
     color: rgb(110, 4, 119);
+}
+
+
+.structureUl > li{
+    border: 1px solid rgb(231, 231, 231);
+    padding: 16px;
+    border-radius: 0.5rem;
+    position: relative;
+    width: 100%;
+}
+.structureUl > li > div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.structureUl > li > div > span{
+    width: 30%;
+}
+.structureUl > li > div > div{
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.structureUl_2{
+    padding: 0px;
+    gap: 0px!important;
+}
+.structureUl_2 > li{
+    border-bottom: 1px solid rgb(231, 231, 231);
+    padding: 16px;
+    position: relative;
+    width: 100%;
+}
+.structureUl_2 > li:nth-child(1){
+    border-top: 1px solid rgb(231, 231, 231);
+}
+.structureUl_2 > li > div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.structureUl_2 > li > div > span{
+    width: 100%;
+}
+.structureUl_2 > li > div > div{
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.structureButtons{
+    display: flex;
+    gap: 16px;
+}
+.structureButtons > button{
+    border: 0px none transparent;
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+    font-size: 18px;
+    color: rgb(110, 4, 119);
+}
+
+/* Dodawanie i edytowanie */
+.addgame_container, .addgame_container > form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+    width: 100%;
+}
+.addgame_container{
+    border-top: 16px solid rgb(238, 238, 238);
+    padding-top: 32px;
+}
+.addgame_container > h3{
+    text-align: start;
+}
+.addgame_container > div, .addgame_container > form > div{
+    display: flex;
+    gap: 16px;
+}
+.addgame_container > div > input, .addgame_container > div > textarea, .addgame_container > form > div > textarea, .addgame_container > form > div > input, .addgame_container > form > div > label {
+    width: 100%;
+    border: 1px solid rgb(231, 231, 231);
+    border-radius: 0.5rem;
+    padding: 8px 12px;
+}
+.addgame_container > form > div > label{
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+    align-items: center;
+}
+.addgame_container > div > textarea, .addgame_container > form > div > textarea{
+    min-height: 300px;
+}
+.addgame_container > div > label, .addgame_container > form > div > label{
+    min-width: 400px;
+    width: 400px;
+    text-align: end;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 8px 12px;
+    border-radius: 0.5rem;
+}
+.addgame_add, .addgame_back{
+    border: 0px none transparent;
+    padding: 16px;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 18px;
+}
+.addgame_add{
+    color: white;
+    background-color: rgb(110, 4, 119);
+}
+.addgame_back{
+    color: white;
+    background-color: rgb(35 35 35);
+}
+
+/* Tytuł pozycji */
+.position_title{
+    background-color: rgb(110, 4, 119);
+    color: white;
+    font-size: 18px;
+    text-align: left;
+    padding: 8px 16px;
+    margin-top: 32px;
+}
+
+.addMenu_add, .addMenu_back{
+    border: 0px none transparent;
+    padding: 16px;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 18px;
+}
+.addMenu_add{
+    color: white;
+    background-color: rgb(110, 4, 119);
+}
+.addMenu_back{
+    color: white;
+    background-color: rgb(35 35 35);
 }

@@ -5,10 +5,7 @@ function Footer(props){
         <footer>
             <div className={`${styles.footer_top} container`}>
                 <div className={`${styles.column}`}>
-                    <h2 className={`${styles.footer_title}`}>Kontakt</h2>
-                    <p>Lorem ipsum dolor sit amet</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur</p>
+                    {props.children}
                 </div>
                 <div className={`${styles.column}`}>
                     <h2 className={`${styles.footer_title}`}>Social media</h2>

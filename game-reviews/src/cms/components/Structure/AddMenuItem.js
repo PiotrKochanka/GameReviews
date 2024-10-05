@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styles from './structure.module.css';
+import MyEditor from '../MyEditor/MyEditor';
 
 const AddMenuItem = ({ onAddMenuItem, parentMenuItems }) => {
   const [formData, setFormData] = useState({
@@ -9,7 +11,8 @@ const AddMenuItem = ({ onAddMenuItem, parentMenuItems }) => {
     content: '',
     url: '',
     image: '',
-    parent_id: null, // Możliwość przypisania parent_id
+    parent_id: null,
+    date: '', // Zainicjowane pole daty
   });
   
   const [menuPositions, setMenuPositions] = useState([]);
@@ -32,9 +35,20 @@ const AddMenuItem = ({ onAddMenuItem, parentMenuItems }) => {
     });
   };
 
+  // Obsługa zmiany treści w edytorze
+  const handleContentChange = (content) => {
+    setFormData({
+      ...formData,
+      content: content // Zaktualizuj pole 'content' oddzielnie
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
+    // Sprawdź, czy data jest prawidłowo ustawiona
+    console.log("Formularz wysyłany z datą:", formData.date);
+  
     // Wyślij dane do backendu
     axios.post('http://localhost:8000/api/menu', formData)
       .then(response => {
@@ -46,13 +60,23 @@ const AddMenuItem = ({ onAddMenuItem, parentMenuItems }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={`${styles.addgame_container}`} onSubmit={handleSubmit}>
       <div>
         <label>Nazwa:</label>
         <input
           type="text"
           name="name"
           value={formData.name}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <label>Data:</label>
+        <input
+          type="date"
+          name="date"
+          value={formData.date}
           onChange={handleChange}
           required
         />
@@ -110,14 +134,10 @@ const AddMenuItem = ({ onAddMenuItem, parentMenuItems }) => {
         />
       </div>
       <div>
-        <label>Content:</label>
-        <textarea
-          name="content"
-          value={formData.content}
-          onChange={handleChange}
-        />
+        {/* <label>Content:</label> */}
+        <MyEditor value={formData.content} onChange={handleContentChange} />
       </div>
-      <button type="submit">Dodaj element</button>
+      <button className={`${styles.addMenu_add}`} type="submit">Dodaj element</button>
     </form>
   );
 };

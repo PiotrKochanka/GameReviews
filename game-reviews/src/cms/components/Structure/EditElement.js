@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './structure.module.css'; // Upewnij się, że ścieżka jest poprawna
+import MyEditor from '../MyEditor/MyEditor';
 
 const EditElement = ({ item, onEdit, onCancel, parentMenuItems = [] }) => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const EditElement = ({ item, onEdit, onCancel, parentMenuItems = [] }) => {
     url: item.url,
     image: item.image,
     parent_id: item.parent_id || '', // Dodaj parent_id do początkowych danych formularza
+    date: item.date || '', // Upewnij się, że data jest zainicjowana poprawnie
   });
   const [menuPositions, setMenuPositions] = useState([]);
 
@@ -30,6 +32,11 @@ const EditElement = ({ item, onEdit, onCancel, parentMenuItems = [] }) => {
     setFormData({ ...formData, [name]: value });
   };
 
+    // Osobna funkcja do obsługi zmiany treści z edytora
+    const handleContentChange = (content) => {
+      setFormData({ ...formData, content });
+    };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.put(`http://localhost:8000/api/menu/${item.id}`, formData)
@@ -46,19 +53,30 @@ const EditElement = ({ item, onEdit, onCancel, parentMenuItems = [] }) => {
 
   return (
     <div className={`${styles.edit_container}`}>
-      <h4>Edytuj element</h4>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Nazwa:
+      <form className={`${styles.addgame_container}`} onSubmit={handleSubmit}>
+        <div>
+          <label>
+            Nazwa:
+          </label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+            />
+          
+        </div>
+        <div>
+          <label>Data:</label>
           <input
-            type="text"
-            name="name"
-            value={formData.name}
+            type="date"
+            name="date"
+            value={formData.date || ''} 
             onChange={handleInputChange}
             required
           />
-        </label>
-        <br />
+        </div>
         <div>
           <label>Pozycja:</label>
           <select
@@ -75,7 +93,6 @@ const EditElement = ({ item, onEdit, onCancel, parentMenuItems = [] }) => {
             ))}
           </select>
         </div>
-        <br />
         <div>
           <label>Parent ID (jeśli istnieje):</label>
           <select
@@ -91,51 +108,53 @@ const EditElement = ({ item, onEdit, onCancel, parentMenuItems = [] }) => {
             ))}
           </select>
         </div>
-        <br />
-        <label>
-          Typ menu:
-          <select
-            name="menu_type"
-            value={formData.menu_type}
-            onChange={handleInputChange}
-          >
-            <option value="link">Link</option>
-            <option value="menu">Menu</option>
-            <option value="info">Info</option>
-          </select>
-        </label>
-        <br />
-        <label>
-          Zawartość:
-          <textarea
-            name="content"
-            value={formData.content}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          URL:
-          <input
-            type="text"
-            name="url"
-            value={formData.url}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          Obraz:
-          <input
-            type="text"
-            name="image"
-            value={formData.image}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <button type="submit">Zapisz</button>
-        <button type="button" onClick={onCancel}>Anuluj</button>
+        <div>
+          <label>
+            Typ menu:
+          </label>
+            <select
+              name="menu_type"
+              value={formData.menu_type}
+              onChange={handleInputChange}
+            >
+              <option value="link">Link</option>
+              <option value="menu">Menu</option>
+              <option value="info">Info</option>
+            </select>
+          
+        </div>
+        <div>
+          <label>
+            URL:
+          </label>
+            <input
+              type="text"
+              name="url"
+              value={formData.url}
+              onChange={handleInputChange}
+            />
+        </div>
+        <div>
+          <label>
+            Obraz:
+          </label>
+            <input
+              type="text"
+              name="image"
+              value={formData.image}
+              onChange={handleInputChange}
+            />
+          
+        </div>
+        <div>
+          {/* <label>
+            Zawartość:
+          </label> */}
+          <MyEditor value={formData.content} onChange={handleContentChange} />
+          
+        </div>
+        <button className={`${styles.addMenu_add}`} type="submit">Zapisz</button>
+        <button className={`${styles.addMenu_back}`} type="button" onClick={onCancel}>Anuluj</button>
       </form>
     </div>
   );

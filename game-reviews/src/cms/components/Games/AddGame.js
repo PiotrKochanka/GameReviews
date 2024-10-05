@@ -78,7 +78,7 @@ function AddGame({ onClose, onAdd }) {
             <div><span>Baner</span><input type="file" name="banner_image" onChange={handleChange} /></div>
             <div><span>Ocena</span><input type="number" name="score" value={formData.score || ''} onChange={handleChange} placeholder="Score" /></div>
             <div><span>Data</span><input type="date" name="date" value={formData.date || ''} onChange={handleChange} /></div>
-            <div><span>Treść</span>
+            <div>
                 <MyEditor value={formData.content} onChange={handleEditorChange} />
             </div>
             <button className={`${styles.addgame_add}`} onClick={handleSave}>Zapisz</button>

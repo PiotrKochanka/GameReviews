@@ -7,13 +7,13 @@ function Menu() {
   const [visibleSubmenus, setVisibleSubmenus] = useState({}); // Przechowujemy widoczność submenu
 
   // Funkcja do pobierania danych z API
+
   const fetchMenuData = () => {
-    axios.get('http://localhost:8000/api/menu')
+    axios.get('http://localhost:8000/api/menu?type=menu')
       .then(response => {
-        const filteredMenuItems = response.data
-          .filter(position => position.id === 1) // Filtrujemy pozycje menu o id równym 1
-          .flatMap(position => position.menu_items); // Pobieramy elementy menu dla pozycji o id 1
-        setMenuItems(filteredMenuItems); // Zapisz elementy menu w stanie
+        const filteredMenuItems = response.data.filter(item => item.position_id === 1); // Filtrujemy elementy, które mają position_id równy 1
+        console.log('Fetched Menu Items:', filteredMenuItems); // Debugowanie
+        setMenuItems(filteredMenuItems); // Ustawiamy przefiltrowane elementy w stanie
       })
       .catch(error => {
         console.error('Błąd podczas pobierania danych:', error);
@@ -77,6 +77,7 @@ function Menu() {
 
   return (
     <nav>
+      {console.log('Stan menuItems:', menuItems)} {/* Logowanie stanu menuItems */}
       {menuItems.length > 0 ? renderTopLevelMenuItems(menuItems) : <p>Ładowanie menu...</p>}
     </nav>
   );

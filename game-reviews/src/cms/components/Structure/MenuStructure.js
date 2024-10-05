@@ -4,17 +4,18 @@ import AddMenuItem from './AddMenuItem';
 import EditElement from './EditElement';
 import styles from './structure.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFolderTree } from '@fortawesome/free-solid-svg-icons';
+import { faFolderTree, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const MenuStructure = () => {
-  const [menuPositions, setMenuPositions] = useState([]);
+  const [menuData, setMenuData] = useState([]);
   const [editingItemId, setEditingItemId] = useState(null);
+  const [dataType, setDataType] = useState('menu_positions'); // Domyślnie 'menu_positions'
 
   // Funkcja do pobierania danych z API
   const fetchMenuData = () => {
-    axios.get('http://localhost:8000/api/menu')
+    axios.get(`http://localhost:8000/api/menu?type=${dataType}`)
       .then(response => {
-        setMenuPositions(response.data);
+        setMenuData(response.data);
       })
       .catch(error => {
         console.error('Błąd podczas pobierania danych:', error);
@@ -23,7 +24,7 @@ const MenuStructure = () => {
 
   useEffect(() => {
     fetchMenuData();
-  }, []);
+  }, [dataType]); // Zmiana w dataType powoduje ponowne pobranie danych
 
   const handleAddMenuItem = (newMenuItem) => {
     fetchMenuData(); // Odświeżenie danych po dodaniu nowego elementu
@@ -50,15 +51,20 @@ const MenuStructure = () => {
       <ul className={`${styles.structureUl_2}`}>
         {menuItems.map(item => (
           <li key={item.id}>
-            <span>{item.created_at}</span>
-            <span>{item.name}</span>
-            <span>{item.url}</span>
-            <button onClick={() => setEditingItemId(item.id)}>
-              Edytuj
-            </button>
-            <button onClick={() => handleDeleteMenuItem(item.id)}>
-              Usuń
-            </button>
+            <div>
+              <span><strong>Data: </strong>{item.date}</span>
+              <span><strong>Tytuł: </strong>{item.name}</span>
+              <span><strong>Link: </strong>{item.url}</span>
+              <span><strong>Typ: </strong>{item.menu_type}</span>
+              <div className={`${styles.structureButtons}`}>
+                <button onClick={() => setEditingItemId(item.id)}>
+                  <FontAwesomeIcon icon={faPenToSquare} />
+                </button>
+                <button onClick={() => handleDeleteMenuItem(item.id)}>
+                  <FontAwesomeIcon icon={faTrash} />
+                </button>
+              </div>
+            </div>
 
             {editingItemId === item.id && (
               <EditElement 
@@ -68,11 +74,7 @@ const MenuStructure = () => {
               />
             )}
 
-            {item.children && item.children.length > 0 && (
-              <ul>
-                {renderMenuItems(item.children)}
-              </ul>
-            )}
+            {item.children && item.children.length > 0 && renderMenuItems(item.children)}
           </li>
         ))}
       </ul>
@@ -86,15 +88,20 @@ const MenuStructure = () => {
           .filter(item => !item.parent_id)
           .map(item => (
             <li key={item.id}>
-              <span>{item.created_at}</span>
-              <span>{item.name}</span>
-              <span>{item.url}</span>
-              <button onClick={() => setEditingItemId(item.id)}>
-                Edytuj
-              </button>
-              <button onClick={() => handleDeleteMenuItem(item.id)}>
-                Usuń
-              </button>
+              <div>
+                <span><strong>Data: </strong>{item.date}</span>
+                <span><strong>Tytuł: </strong>{item.name}</span>
+                <span><strong>Link: </strong>{item.url}</span>
+                <span><strong>Typ: </strong>{item.menu_type}</span>
+                <div className={`${styles.structureButtons}`}>
+                  <button onClick={() => setEditingItemId(item.id)}>
+                    <FontAwesomeIcon icon={faPenToSquare} />
+                  </button>
+                  <button onClick={() => handleDeleteMenuItem(item.id)}>
+                    <FontAwesomeIcon icon={faTrash} />
+                  </button>
+                </div>
+              </div>
 
               {editingItemId === item.id && (
                 <EditElement 
@@ -104,11 +111,7 @@ const MenuStructure = () => {
                 />
               )}
 
-              {item.children && item.children.length > 0 && (
-                <ul>
-                  {renderMenuItems(item.children)}
-                </ul>
-              )}
+              {item.children && item.children.length > 0 && renderMenuItems(item.children)}
             </li>
           ))}
       </ul>
@@ -118,15 +121,16 @@ const MenuStructure = () => {
   return (
     <div className={`${styles.structureContainer}`}>
       <h2><FontAwesomeIcon icon={faFolderTree} />Struktura Menu</h2>
-      {menuPositions.map(position => (
+
+      {menuData.map(position => (
         <div key={position.id}>
-          <h3>{position.name}</h3>
+          <h3 className={`${styles.position_title}`}>{position.name}</h3>
           {position.menu_items && renderTopLevelMenuItems(position.menu_items)}
         </div>
       ))}
 
       {/* Komponent do dodawania nowych elementów */}
-      <AddMenuItem onAddMenuItem={handleAddMenuItem} parentMenuItems={menuPositions.flatMap(pos => pos.menu_items)} />
+      <AddMenuItem onAddMenuItem={handleAddMenuItem} parentMenuItems={menuData.flatMap(pos => pos.menu_items)} />
     </div>
   );
 };

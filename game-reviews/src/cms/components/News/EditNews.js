@@ -101,7 +101,7 @@ function EditNews({ newsId, onClose, onUpdate }) {
                         <input type="file" name="photo" onChange={handleFileChange} />
                     </label>
                 </div>
-                <div><span>Treść</span>
+                <div>
                     <MyEditor value={news.content} onChange={handleEditorChange} />
                 </div>
                 <button className={`${styles.addnews_add}`} type="submit">Save</button>

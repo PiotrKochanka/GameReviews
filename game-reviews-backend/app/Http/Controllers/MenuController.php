@@ -9,16 +9,35 @@ use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
-    public function index()
+    // public function index()
+    // {
+    //     $menuPositions = MenuPosition::with('menuItems.children')->get();
+    //     return response()->json($menuPositions);
+    // }
+    public function index(Request $request)
     {
-        $menuPositions = MenuPosition::with('menuItems.children')->get();
-        return response()->json($menuPositions);
+        // Sprawdź, jaki typ danych chcemy zwrócić
+        $type = $request->query('type', 'menu'); // Domyślnie 'menu'
+    
+        if ($type === 'menu') {
+            // Zwróć dane z tabeli 'menu'
+            $menuItems = Menu::with('children')->where('parent_id', null)->get(); // Ładowanie elementów bez rodzica (główne menu)
+    
+            return response()->json($menuItems);
+        } elseif ($type === 'menu_positions') {
+            // Zwróć dane z tabeli 'menu_positions'
+            $menuPositions = MenuPosition::with('menuItems.children')->get();
+            return response()->json($menuPositions);
+        }
+    
+        return response()->json(['message' => 'Invalid type specified'], 400);
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
             'name' => 'required|string',
+            'date' => 'required|date',
             'position_id' => 'required|exists:menu_positions,id',
             'menu_type' => 'required|in:link,menu,info',
             'content' => 'nullable|string',
@@ -35,6 +54,7 @@ class MenuController extends Controller
     {
         $data = $request->validate([
             'name' => 'sometimes|required|string',
+            'date' => 'required|date',
             'position_id' => 'sometimes|required|exists:menu_positions,id',
             'menu_type' => 'sometimes|required|in:link,menu,info',
             'content' => 'nullable|string',

@@ -70,13 +70,13 @@ function AddNews({ onClose, onAdd }) {
 
     return (
         <div className={`${styles.addnews_container}`}>
-            <h3>Dodaj News</h3>
+            <h3>Dodaj Aktualność</h3>
             <form onSubmit={handleSave}> {/* Dodajemy form, aby przyciski były typu submit */}
                 <div><span>Tytuł</span><input type="text" name="title" value={formData.title} onChange={handleChange} placeholder="Title" /></div>
                 <div><span>Grafika</span><input type="file" name="photo" onChange={handleChange} /></div> {/* Zmieniono name na "photo" */}
                 <div><span>Data</span><input type="date" name="date" value={formData.date} onChange={handleChange} /></div>
                 <div><span>Skrót</span><input type="text" name="shortcut" value={formData.shortcut} onChange={handleChange} placeholder="Shortcut" /></div>
-                <div><span>Treść</span>
+                <div>
                     <MyEditor value={formData.content} onChange={handleEditorChange} />
                 </div>
                 <button className={`${styles.addnews_add}`} type="submit">Zapisz</button> {/* Używamy type="submit" */}

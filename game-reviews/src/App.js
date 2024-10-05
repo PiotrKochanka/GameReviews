@@ -26,24 +26,33 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './cms/components/ProtectRoute/ProtectRoute';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Loader from './components/Loader/Loader';
+import Info from './components/Info/Info';
 // import RSSFeed from './components/RSSFeed';
 
 function App() {
   const [games, setGames] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-      // Funkcja do pobierania danych z API
-      const fetchGames = async () => {
-          try {
-              const response = await axios.get('http://localhost:8000/api/games');
-              setGames(response.data);
-          } catch (error) {
-              console.error('Błąd podczas pobierania aktualności:', error);
-          }
-      };
+    const fetchGames = async () => {
+        try {
+            const response = await axios.get('http://localhost:8000/api/games');
+            console.log(response.data); // Sprawdź, czy dane są pobierane
+            setGames(response.data);
+            setLoading(false); // Zakończ ładowanie po pobraniu danych
+        } catch (error) {
+            console.error('Błąd podczas pobierania gier:', error);
+            setLoading(false); // Zakończ ładowanie w przypadku błędu
+        }
+    };
 
-      fetchGames();
+    fetchGames();
   }, []);
+  
+  if (loading) {
+    return <Loader />; // Wyświetl loader podczas ładowania
+  }
 
   const logoElement = (
     <a href="#" className="logo">
@@ -83,7 +92,8 @@ function App() {
         <Games games={games}/>
     ),
     about: (
-      <About onLogo={logoElement}/>
+      <About onLogo={logoElement}>
+      </About>
     ),
     best: (
       <Best games={games}/>
@@ -92,7 +102,9 @@ function App() {
       <RSSFeed />
     ),
     footer: (
-      <Footer onSocial={socials} onMenu={menu}/>
+      <Footer onSocial={socials} onMenu={menu}>
+          <Info menuId={37} styleClass="footer"/>
+      </Footer>
     ),
   };
 

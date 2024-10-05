@@ -11,7 +11,7 @@ class Menu extends Model
     use HasFactory;
 
     protected $table = 'menu';
-    protected $fillable = ['name', 'position_id', 'menu_type', 'content', 'url', 'image', 'parent_id'];
+    protected $fillable = ['name', 'date', 'position_id', 'menu_type', 'content', 'url', 'image', 'parent_id'];
 
     public function position()
     {
