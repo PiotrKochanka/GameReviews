@@ -1,4 +1,5 @@
 import styles from './footer.module.css';
+import './footer.module.css';
 
 function Footer(props){
     return(
@@ -8,11 +9,11 @@ function Footer(props){
                     {props.children}
                 </div>
                 <div className={`${styles.column}`}>
-                    <h2 className={`${styles.footer_title}`}>Social media</h2>
+                    <h3 className="footer_title">Social media</h3>
                     {props.onSocial}
                 </div>
                 <div className={`${styles.column}`}>
-                    <h2 className={`${styles.footer_title}`}>Na skróty</h2>
+                    <h3 className="footer_title">Na skróty</h3>
                     {props.onMenu}
                 </div>
             </div>

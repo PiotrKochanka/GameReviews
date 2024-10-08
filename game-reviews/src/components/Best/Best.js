@@ -28,19 +28,19 @@ function Best({ games }) {
                         <article className={`${styles.best}`} key={item.id}>
                             <div className={`${styles.best_icon_cont}`}>
                                 <div className={`${styles.best_icon}`}>
+                                    <p className={`${
+                                        item.score > 7
+                                            ? 'good_rate'
+                                            : item.score > 4.5 ? 'mid_rate'
+                                            : 'bad_rate'
+                                        } ${styles.best_content_rate}`}>
+                                        {parseFloat(item.score).toFixed(1)}
+                                    </p>
                                     <img src={`${baseUrl}${item.image}`} alt={item.title} />
                                 </div>
                             </div>
                             <div className={`${styles.best_content}`}>
                                 <h2 className={`${styles.best_content_title}`}>{item.title}</h2>
-                                <p className={`${
-                                    item.score > 7
-                                        ? 'good_rate'
-                                        : item.score > 4.5 ? 'mid_rate'
-                                        : 'bad_rate'
-                                    } ${styles.best_content_rate}`}>
-                                    {parseFloat(item.score).toFixed(1)}
-                                </p>
                             </div>
                         </article>
                     ))}

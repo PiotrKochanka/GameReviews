@@ -1,16 +1,18 @@
 footer{
     margin-top: 40px;
-    background-color: black;
+    background-color: #141414;
     border-top: 2px solid #bda8fe;
 }
 .footer_bottom{
     color: white;
-    padding: 24px 0px;
+    padding: 16px 0px;
+    margin: 0 80px;
+    border-top: 1px solid rgba(0, 0, 0, 0.288);
 }
 .footer_top{
     display: flex;
     justify-content: space-between;
-    padding: 32px;
+    padding: 64px 80px !important;
     color: white;
     text-align: left;
 }
@@ -18,12 +20,16 @@ footer{
     display: flex;
     flex-direction: column;
 }
+.column:nth-child(3) ul ul{
+    display: none;
+}
 .column:nth-child(3) ul li{
     padding: 2px 0px;
 }
 .column:nth-child(3) ul li a{
     font-weight: 300;
     color: rgba(255, 255, 255, 0.788);
+    padding: 0px;
 }
 .column:nth-child(2) ul li a{
     font-size: 20px;

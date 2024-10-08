@@ -81,6 +81,9 @@ function RSSFeed() {
           ))
         )}
       </ul>
+      <div className={`${styles.rss_button}`}>
+        <button>Zobacz więcej</button>
+      </div>
     </div>
   );
 }

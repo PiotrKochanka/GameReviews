@@ -65,7 +65,36 @@
     color: #bda8fe;
     text-transform: uppercase;
 }
+.news_content_title a{
+    text-decoration-color: transparent;
+    color: #bda8fe;
+    transition: 0.2s;
+}
+.news_content_title a:hover{
+    opacity: 0.6;
+}
 .news_content_shortcut{
     color: white;
     font-size: 16px;
+}
+
+.news_button{
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+.news_button button{
+    text-align: left;
+    display: block;
+    text-decoration-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 24px;
+    border-radius: 0.6rem;
+    /* background-color: #FFD700; */
+    background-color: transparent;
+    border: 2px solid #bda8fe;
+    color: #bda8fe;
+    margin-top: 16px;
+    width: max-content;
 }

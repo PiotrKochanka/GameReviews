@@ -18,7 +18,11 @@ class NewsController extends Controller
     // Fetch a single News by ID
     public function show($id)
     {
-        return News::findOrFail($id);
+        $news = News::find($id);
+        if (!$news) {
+            return response()->json(['message' => 'News not found'], 404);
+        }
+        return response()->json($news);
     }
 
     // Create a new News
