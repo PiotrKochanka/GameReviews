@@ -1,7 +1,7 @@
 function Layout(props) {
     return(
         <>
-            <div>
+            <div className="layout_web">
                 {props.children};
             </div>
         </>

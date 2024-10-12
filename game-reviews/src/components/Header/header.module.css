@@ -1,27 +1,70 @@
 .header{
     /* border: 1px solid red; */
-    height: 156px;
+    /* height: 156px; */
     /* background-color: #2C003E; */
     /* background-color: #230d2c; */
     /* background-color: #8B0000; */
-    margin-bottom: -48px;
-    position: relative;
+    /* margin-bottom: -48px; */
+    position: fixed;
+    width: 100%;
+    top: 0px;
     z-index: 9;
 }
 .header_container{
-    height: 96px;
-    display: flex;
+    height: 88px;
+    transition: 0.3s;
+    /* display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 8px;
+    align-items: flex-start; */
 }
 .header_container > div{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    /* display: flex;
+    justify-content: space-between;
+    padding: 24px 0px; */
 }
 .header_container > div > div{
     display: flex;
     gap: 16px;
     align-items: center;
+    position: relative;
+    top: 0px;
+    transition: 0.3s;
+    background-color: rgba(29, 29, 29, 0.39);
+    backdrop-filter: blur(6px);
+    padding-left: 16px;
+    border-radius: 2em;
+}
+
+header{
+    transition: 0.3s;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+header > div{
+    width: 100%;
+}
+header > div > div:last-child > ul:first-child{
+    position: relative;
+    top: 0px;
+    transition: 0.3s;
+}
+
+.sticky{
+    background-color: rgba(29, 29, 29, 0.822);
+    backdrop-filter: blur(10px);
+}
+.sticky > div > div:last-child > ul:first-child{
+    top: -64px;
+    opacity: 0;
+}
+.sticky > div > div:last-child > div{
+    top: -28px;
+}
+.sticky .header_container{
+    height: 88px;
+}
+.sticky .header_container > div > div{
+    background-color: transparent;
+    backdrop-filter: none;
 }

@@ -7,10 +7,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+main {
+  flex: 1; /* Zajmuje pozostałe miejsce pomiędzy nagłówkiem a stopką */
 }
 
 /* Logo */
@@ -30,6 +39,18 @@ header .logo{
   font-weight: 700;
   position: relative;
   margin-bottom: 0px;
+  /* position: absolute; */
+  top: 0px;
+}
+header .logo_container{
+  position: absolute;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 12px 32px 12px 12px;
+  align-items: center;
 }
 
 .logo{
@@ -205,15 +226,15 @@ main{
 
 /* User */
 .user{
-  font-size: 18px;
+  font-size: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #bda8fe;
+  border: 3px solid #bda8fe;
   color: #bda8fe;
-  border-radius: 0.6rem;
-  width: 36px;
-  height: 36px;
+  border-radius: 0.8rem;
+  width: 48px;
+  height: 48px;
 }
 
 /* Stopka */
@@ -223,4 +244,67 @@ main{
   font-weight: 700;
   color: #bda8fe;
   margin-bottom: 16px;
+}
+
+/* Podstrona */
+.header_subpage{
+  padding-top: 272px;
+}
+/* .header_subpage > div{
+  width: 100%;
+
+}
+.header_subpage > div > header{
+  width: 100%;
+  position: relative;
+  top: -200px;
+}
+.header_subpage > div > header > div{
+  width: 100%;
+} */
+
+.baner_graphic_back{
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 586px;
+  background-image: url(./assets/images/back.jpg);
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+.baner_graphic_back:after{
+  content: '';
+  display: block;
+  width: 100%;
+  height: 200px;
+  /* background: #232024ad; */
+  background-color: rgb(46 46 46);
+  background: linear-gradient(0deg, rgba(46, 46, 46,1) 0%, rgba(46, 46, 46,0.9023984593837535) 10%, rgba(46, 46, 46,0.7987570028011204) 20%, rgba(46, 46, 46,0.5998774509803921) 50%, rgba(46, 46, 46,0.20211834733893552) 80%, rgba(46,46,46,0) 100%);
+  position: absolute;
+  bottom: 0px;
+}
+.baner_graphic_back:before{
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: #241f2594;
+  display:block;
+  z-index: 2;
+}
+
+.baner_graphic_back_subpage{
+  height: 360px;
+
+}
+
+.menu_center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0px;
+  gap: 8px;
+}
+.about_content > p > span, .about_rev_content > p > span{
+  color: white!important;
 }

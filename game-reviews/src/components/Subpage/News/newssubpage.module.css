@@ -1,0 +1,11 @@
+.news_subpage{
+    background-color: rgba(46, 46, 46, 0.685);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    padding: 40px!important;
+    margin-top: -160px;
+    color: rgb(216, 216, 216);
+}

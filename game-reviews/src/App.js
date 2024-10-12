@@ -49,10 +49,15 @@ function App() {
   }
 
   const logoElement = (
+    <div className="logo_container">
     <a href="/" className="logo">
       <img src={logo} alt="Logo" />
       <span>FAN<span></span><span>Boy</span></span>
     </a>
+    <a className="user" href="#" alt="Logowanie">
+      <FontAwesomeIcon icon={faUser} />
+    </a>
+    </div>
   );
 
   const layout = getLayout({ games, logoElement });
@@ -88,6 +93,7 @@ function HomeLayout({ layout }) {
     <Layout>
       {layout.header}
       {layout.baner}
+      <div className="baner_graphic_back"></div> 
       <main>
         {layout.best}
         {layout.games}
@@ -104,7 +110,10 @@ function HomeLayout({ layout }) {
 function NewsLayout({ layout }) {
   return (
     <Layout>
-      {layout.header}
+      <div className="header_subpage">
+        {layout.header}
+      </div>
+      <div className="baner_graphic_back baner_graphic_back_subpage"></div> 
       <main>
         <NewsSubpage />
       </main>
@@ -121,14 +130,11 @@ function getLayout({ games, logoElement }) {
     header: (
       <Header>
         {logoElement}
-        <div>
+        <div className="container menu_center">
           {socials}
-          <div>
+          <div className="">
             {menu}
             <Searchbar />
-            <a className="user" href="#" alt="Logowanie">
-              <FontAwesomeIcon icon={faUser} />
-            </a>
           </div>
         </div>
       </Header>

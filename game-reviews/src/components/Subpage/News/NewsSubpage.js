@@ -34,7 +34,7 @@ function NewsSubpage() {
   }
 
   return (
-    <div className={styles.news_subpage}>
+    <div className={`${styles.news_subpage} container`}>
       <h1>{newsItem.title}</h1>
       <div>
         <span>{newsItem.date}</span>

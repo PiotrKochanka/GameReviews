@@ -1,5 +1,17 @@
+
 .App {
   text-align: center;
+
+ 
+}
+.App > div{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.layout_web{
+  padding-top: 96px;
+  position: relative;
 }
 
 .App-logo {

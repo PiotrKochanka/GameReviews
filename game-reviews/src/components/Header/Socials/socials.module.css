@@ -1,9 +1,9 @@
 ul.socials{
     display: flex;
-    gap: 16px;
+    gap: 32px;
     list-style-type: none;
     padding: 0px;
-    margin: 0px 0px 8px 0px;
+    margin: 0px 0px 0px 0px;
 }
 ul.socials > li > a{
     /* color: #00FFFF; */

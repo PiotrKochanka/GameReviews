@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './info.css';
 
-function Info({menuId, styleClass}) {
+function Info({ menuId, styleClass }) {
     const [menu, setMenu] = useState([]);
 
     useEffect(() => {
@@ -20,20 +20,17 @@ function Info({menuId, styleClass}) {
     };
 
     const displayMenuItemsById = (menuId) => {
-        // funkcja która wyświetla element o danym id z bazy
+        // Funkcja wyświetlająca element o danym id z bazy
         const filteredItems = menu.filter(item => item.id === menuId);
         return filteredItems.map(item => (
             <div className={styleClass} key={item.id}>
                 <h3 className={`${styleClass}_title`}>{item.name}</h3>
-                <p className={`${styleClass}_content`}>{removeHTMLTags(item.content)}</p>
+                <div
+                    className={`${styleClass}_content`}
+                    dangerouslySetInnerHTML={{ __html: item.content }} // Renderowanie HTML
+                />
             </div>
         ));
-    };
-
-    const removeHTMLTags = (html) => {
-        // Funkcja usuwająca znaczniki HTML
-        const doc = new DOMParser().parseFromString(html, 'text/html');
-        return doc.body.textContent || "";
     };
 
     return (

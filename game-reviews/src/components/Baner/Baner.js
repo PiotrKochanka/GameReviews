@@ -14,9 +14,6 @@ function Baner(props){
                 <button>Sprawdź</button>
             </div>  
         </div>
-        <div className={`${styles.baner_graphic_back}`}>
-
-        </div>
         </>
     );
 }

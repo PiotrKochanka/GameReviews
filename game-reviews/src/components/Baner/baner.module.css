@@ -1,17 +1,18 @@
 .baner{
     width: 100%;
-    height: 500px;
+    height: 440px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
     padding: 0px!important;
+    margin-top: 64px;
     border-radius: 0.6rem;
     overflow: hidden;
 }
 .baner_graphic{
     /* width: 70%; */
-    width: 100%;
+    width: 70%;
     border-radius: 1rem;
     height: 100%;
     background-image: url(../../assets/images/baner_test.webp);
@@ -74,8 +75,8 @@
     display: flex;
 }
 .baner_logo > img{
-    width: 200px;
-    height: 282px;
+    width: 175px;
+    height: 246px;
     border: 1px solid #bda8fe83;
     border-radius: 0.6rem;
 }
