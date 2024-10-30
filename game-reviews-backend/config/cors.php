@@ -13,11 +13,11 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'storage/*'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'], // lub dodaj odpowiednią domenę
+    'allowed_origins' => ['http://localhost:3000'], // lub dodaj odpowiednią domenę
 
     'allowed_origins_patterns' => [],
 

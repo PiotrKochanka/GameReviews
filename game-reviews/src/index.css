@@ -308,3 +308,8 @@ main{
 .about_content > p > span, .about_rev_content > p > span{
   color: white!important;
 }
+
+/* Aktualności background */
+.baner_graphic_back_news{
+  background-image: url(./assets/images/news_background.jpeg);
+}

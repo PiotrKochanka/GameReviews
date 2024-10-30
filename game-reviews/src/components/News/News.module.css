@@ -80,10 +80,10 @@
 
 .news_button{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     margin-top: 16px;
 }
-.news_button button{
+.news_button a{
     text-align: left;
     display: block;
     text-decoration-color: transparent;

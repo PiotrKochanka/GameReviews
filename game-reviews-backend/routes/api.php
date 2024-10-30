@@ -9,6 +9,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuPositionController;
+use App\Http\Controllers\CatalogController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -47,3 +48,10 @@ Route::get('/logs', function () {
     $logs = file_get_contents(storage_path('logs/laravel.log'));
     return response()->json($logs);
 });
+
+Route::post('/catalogs/create', [CatalogController::class, 'create']);
+Route::post('/catalogs/upload-file', [CatalogController::class, 'uploadFile']);
+Route::get('/catalogs/folders', [CatalogController::class, 'getFolders']);
+Route::post('/catalogs/get-files', [CatalogController::class, 'getFiles']);
+Route::post('/catalogs/delete-file', [CatalogController::class, 'deleteFile']);
+Route::get('catalogs/get-images', 'CatalogController@getImages');

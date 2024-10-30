@@ -24,4 +24,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('storage/{path}', function ($path) {
+    $file = storage_path('app/public/' . $path);
+    if (file_exists($file)) {
+        return response()->file($file, [
+            'Access-Control-Allow-Origin' => '*',
+        ]);
+    }
+    abort(404);
+})->where('path', '.*');
+
 require __DIR__.'/auth.php';

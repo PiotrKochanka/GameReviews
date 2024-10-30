@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from './newssubpage.module.css';
+import { Link } from 'react-router-dom';
 
 function NewsSubpage() {
   const { id } = useParams();
@@ -41,6 +42,11 @@ function NewsSubpage() {
         <div
             dangerouslySetInnerHTML={{ __html: newsItem.content }}
         />
+      </div>
+      <div className={`${styles.news_button}`}>
+          <Link to={`/news`}>
+            Powrót do listy
+          </Link>
       </div>
     </div>
   );

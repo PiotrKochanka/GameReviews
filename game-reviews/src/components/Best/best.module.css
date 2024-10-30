@@ -6,11 +6,21 @@
 }
 .best{
     width: 200px;
+    min-width: 200px;
+    border-radius: 0.6rem;
+    background-color: rgba(29, 29, 29, 0.822);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    min-height: 328px;
+    display: flex!important;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
 }
 .best_icon_cont{
     position: relative;
-    width: 200px;
-    height: 260px;
+    width: 180px;
+    height: 240px;
     border: 1px solid #bda8fe83;
     border-radius: 0.6rem;
     overflow: hidden;
@@ -36,9 +46,9 @@
     color: white;
 }
 .best_content_title, .best_content_rate{
-    text-align: left;
+    text-align: center;
     color: white;
-
+    padding: 0 16px;
 }
 .best_content_rate{
     font-weight: 800;

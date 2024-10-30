@@ -24,6 +24,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import Info from './components/Info/Info';
 import logo from './assets/images/logo.png';
 import NewsSubpage from './components/Subpage/News/NewsSubpage';
+import NewsListSubpage from './components/Subpage/News/NewsListSubpage';
 
 function App() {
   const [games, setGames] = useState([]);
@@ -67,6 +68,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomeLayout layout={layout} />} />
+          <Route path="/news" element={<NewsListLayout layout={layout} />} />
           <Route path="/news/:id" element={<NewsLayout layout={layout} />} />
           <Route path="/admin" element={<LoginCMS />} />
           <Route path="/admin/dashboard" element={
@@ -113,9 +115,25 @@ function NewsLayout({ layout }) {
       <div className="header_subpage">
         {layout.header}
       </div>
-      <div className="baner_graphic_back baner_graphic_back_subpage"></div> 
+      <div className="baner_graphic_back baner_graphic_back_news baner_graphic_back_subpage"></div> 
       <main>
         <NewsSubpage />
+      </main>
+      {layout.footer}
+    </Layout>
+  );
+}
+
+//Aktualności Lista Podstrona
+function NewsListLayout({ layout }) {
+  return (
+    <Layout>
+      <div className="header_subpage">
+        {layout.header}
+      </div>
+      <div className="baner_graphic_back baner_graphic_back_news baner_graphic_back_subpage"></div> 
+      <main>
+        <NewsListSubpage />
       </main>
       {layout.footer}
     </Layout>

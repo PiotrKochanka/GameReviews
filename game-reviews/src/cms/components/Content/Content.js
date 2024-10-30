@@ -3,6 +3,7 @@ import News from '../News/News';
 import Games from '../Games/Games';
 import MenuStructure from '../Structure/MenuStructure';
 import Logs from '../Logs/Logs';
+import Catalog from '../Catalog/Catalog';
 
 function Content({ contentType }){
 
@@ -20,6 +21,9 @@ function Content({ contentType }){
             break;
         case 'struktura':
             content = <MenuStructure />;
+            break;
+        case 'katalogi':
+            content = <Catalog />;
             break;
         case 'news':
             content = <News />;
