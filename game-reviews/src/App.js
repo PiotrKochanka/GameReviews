@@ -25,6 +25,8 @@ import Info from './components/Info/Info';
 import logo from './assets/images/logo.png';
 import NewsSubpage from './components/Subpage/News/NewsSubpage';
 import NewsListSubpage from './components/Subpage/News/NewsListSubpage';
+import RssFeedListSubpage from './components/Subpage/RSSFeed/RssFeedListSubpage';
+import RssFeedDetail from './components/Subpage/RSSFeed/RssFeedDetail';
 
 function App() {
   const [games, setGames] = useState([]);
@@ -70,6 +72,8 @@ function App() {
           <Route path="/" element={<HomeLayout layout={layout} />} />
           <Route path="/news" element={<NewsListLayout layout={layout} />} />
           <Route path="/news/:id" element={<NewsLayout layout={layout} />} />
+          <Route path="/rss" element={<RssListLayout layout={layout} />} />
+          <Route path="/rss/:title" element={<RssDetail layout={layout} />} />
           <Route path="/admin" element={<LoginCMS />} />
           <Route path="/admin/dashboard" element={
             <ProtectedRoute>
@@ -134,6 +138,37 @@ function NewsListLayout({ layout }) {
       <div className="baner_graphic_back baner_graphic_back_news baner_graphic_back_subpage"></div> 
       <main>
         <NewsListSubpage />
+      </main>
+      {layout.footer}
+    </Layout>
+  );
+}
+
+//Rss Lista Podstrona
+function RssListLayout({ layout }) {
+  return (
+    <Layout>
+      <div className="header_subpage">
+        {layout.header}
+      </div>
+      <div className="baner_graphic_back baner_graphic_back_news baner_graphic_back_subpage"></div> 
+      <main>
+        <RssFeedListSubpage />
+      </main>
+      {layout.footer}
+    </Layout>
+  );
+}
+
+//Rss Podstrona
+function RssDetail({ layout }) {
+  return (
+    <Layout>
+      <div className="header_subpage">
+        {layout.header}
+      </div>
+      <main>
+        <RssFeedDetail />
       </main>
       {layout.footer}
     </Layout>

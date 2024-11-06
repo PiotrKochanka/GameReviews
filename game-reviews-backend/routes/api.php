@@ -19,6 +19,8 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/rss-feed', [RSSFeedController::class, 'getFeed']);
+Route::get('/rss-feed/{id}', [RSSFeedController::class, 'show']);
+Route::get('/rss/{title}', [RSSFeedController::class, 'getFeedDetail'])->name('rss.detail');
 
 Route::get('/users', [UserController::class, 'index']);
 

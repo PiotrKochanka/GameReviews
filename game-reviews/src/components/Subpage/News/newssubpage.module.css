@@ -11,7 +11,7 @@
 }
 .news_button{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     margin-top: 16px;
 }
 .news_button a{

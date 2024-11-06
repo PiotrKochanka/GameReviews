@@ -202,7 +202,7 @@ header .logo:before{
   background-color: rgb(46 46 46);
 }
 main{
-  position: relative;
+  /* position: relative; */
   z-index: 1;
   /* background-color: rgb(243, 243, 243); */
   background-color: rgb(46 46 46);
@@ -294,7 +294,7 @@ main{
 }
 
 .baner_graphic_back_subpage{
-  height: 360px;
+  height: 420px;
 
 }
 
@@ -310,6 +310,28 @@ main{
 }
 
 /* Aktualności background */
+.subpage_main_container{
+  /* position: relative; */
+}
 .baner_graphic_back_news{
   background-image: url(./assets/images/news_background.jpeg);
+}
+
+/* Tytuły podstron */
+.title_subpage{
+  font-size: 24px;
+  padding-bottom: 8px;
+}
+.date_subpage{
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.116);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.692);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.date_subpage svg{
+  font-size: 12px;
 }
