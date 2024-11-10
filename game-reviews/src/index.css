@@ -294,7 +294,7 @@ main{
 }
 
 .baner_graphic_back_subpage{
-  height: 420px;
+  height: 460px;
 
 }
 
@@ -321,6 +321,7 @@ main{
 .title_subpage{
   font-size: 24px;
   padding-bottom: 8px;
+  padding-right: 80px;
 }
 .date_subpage{
   padding-bottom: 16px;
