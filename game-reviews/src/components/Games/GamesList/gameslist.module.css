@@ -1,0 +1,109 @@
+.games_container{
+    position: relative;
+    margin-top: -160px;
+    display: flex;
+    color: rgb(216, 216, 216);
+    gap: 16px;
+}
+.games{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8vw;
+}
+.games_element{
+    width: 32%;
+    background-color: #353535;
+    box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.14);
+    border-radius: 0.6rem;
+    padding: 8px;
+    position: relative;
+}
+.games_icon{
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 1px solid #bda8fe83;
+}
+.games_icon img{
+    max-width: 100%;
+    object-fit: cover;
+}
+
+/* button */
+.games_button_container{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+    width: 100%;
+}
+.games_button_container a {
+    text-align: left;
+    display: block;
+    text-decoration-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 24px;
+    border-radius: 0.6rem;
+    background-color: transparent;
+    border: 2px solid #bda8fe;
+    color: #bda8fe;
+    margin-top: 16px;
+    width: max-content;
+}
+.games_column2{
+    background-color: rgba(46, 46, 46, 0.685);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 40px!important;
+}
+
+/* Filter */
+.games_filter{
+    width: 360px;
+    min-width: 360px;
+    max-height: max-content;
+    background-color: rgba(46, 46, 46, 0.685);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 40px!important;
+
+}
+.filters ul{
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+.filters ul li{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.filters ul li input{
+    width: 16px;
+    height: 16px;
+}
+
+/* Ocena */
+.best_content_rate{
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 32px;
+    text-align: center;
+    /* padding: 4px 8px; */
+    border-radius: 0.5rem;
+    /* background-color: rgb(255, 175, 27); */
+    color: white;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+}

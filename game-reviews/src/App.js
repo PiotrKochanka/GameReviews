@@ -27,6 +27,7 @@ import NewsSubpage from './components/Subpage/News/NewsSubpage';
 import NewsListSubpage from './components/Subpage/News/NewsListSubpage';
 import RssFeedListSubpage from './components/Subpage/RSSFeed/RssFeedListSubpage';
 import RssFeedDetail from './components/Subpage/RSSFeed/RssFeedDetail';
+import GamesList from './components/Games/GamesList/GamesList';
 
 function App() {
   const [games, setGames] = useState([]);
@@ -74,6 +75,7 @@ function App() {
           <Route path="/news/:id" element={<NewsLayout layout={layout} />} />
           <Route path="/rss" element={<RssListLayout layout={layout} />} />
           <Route path="/rss/:title" element={<RssDetail layout={layout} />} />
+          <Route path="/games" element={<GameList layout={layout} games={games} />} />
           <Route path="/admin" element={<LoginCMS />} />
           <Route path="/admin/dashboard" element={
             <ProtectedRoute>
@@ -119,7 +121,6 @@ function NewsLayout({ layout }) {
       <div className="header_subpage">
         {layout.header}
       </div>
-      <div className="baner_graphic_back baner_graphic_back_news baner_graphic_back_subpage"></div> 
       <main>
         <NewsSubpage />
       </main>
@@ -169,6 +170,22 @@ function RssDetail({ layout }) {
       </div>
       <main>
         <RssFeedDetail />
+      </main>
+      {layout.footer}
+    </Layout>
+  );
+}
+
+//Lista gier
+function GameList({ layout, games }) {
+  return (
+    <Layout>
+      <div className="header_subpage">
+        {layout.header}
+      </div>
+      <div className="baner_graphic_back baner_graphic_back_games baner_graphic_back_subpage"></div>
+      <main>
+        <GamesList games={games}/>
       </main>
       {layout.footer}
     </Layout>

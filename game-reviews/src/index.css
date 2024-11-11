@@ -248,7 +248,7 @@ main{
 
 /* Podstrona */
 .header_subpage{
-  padding-top: 272px;
+  padding-top: 364px;
 }
 /* .header_subpage > div{
   width: 100%;
@@ -317,6 +317,11 @@ main{
   background-image: url(./assets/images/news_background.jpeg);
 }
 
+/* Gry background */
+.baner_graphic_back_games{
+  background-image: url(./assets/images/games_background.jpeg);
+}
+
 /* Tytuły podstron */
 .title_subpage{
   font-size: 24px;
@@ -335,4 +340,9 @@ main{
 }
 .date_subpage svg{
   font-size: 12px;
+}
+
+/* kontener podstrona */
+.subpage_back{
+  margin-top: -160px;
 }
