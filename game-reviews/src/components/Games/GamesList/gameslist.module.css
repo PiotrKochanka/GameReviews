@@ -8,7 +8,7 @@
 .games{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.8vw;
 }
 .games_element{
@@ -58,6 +58,7 @@
     backdrop-filter: blur(10px);
     border-radius: 1rem;
     padding: 40px!important;
+    width: 100%;
 }
 
 /* Filter */
@@ -65,7 +66,7 @@
     width: 360px;
     min-width: 360px;
     max-height: max-content;
-    background-color: rgba(46, 46, 46, 0.685);
+    background-color: rgba(54, 54, 54, 0.685);
     backdrop-filter: blur(10px);
     border-radius: 1rem;
     padding: 40px!important;
@@ -89,6 +90,19 @@
     width: 16px;
     height: 16px;
 }
+.games_filters{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.searchbar{
+    width: 100%;
+    padding: 12px;
+    color: white;
+    border-radius: 0.6rem;
+    border: 1px solid #bda8fe;
+    background-color: rgba(37, 37, 37, 0.685);
+}
 
 /* Ocena */
 .best_content_rate{
@@ -107,3 +121,4 @@
     right: 16px;
     top: 16px;
 }
+
