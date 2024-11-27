@@ -28,29 +28,13 @@ import NewsListSubpage from './components/Subpage/News/NewsListSubpage';
 import RssFeedListSubpage from './components/Subpage/RSSFeed/RssFeedListSubpage';
 import RssFeedDetail from './components/Subpage/RSSFeed/RssFeedDetail';
 import GamesList from './components/Games/GamesList/GamesList';
+import useFetchGames from './hooks/useFetchGames';
 
 function App() {
-  const [games, setGames] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { games, loading, error } = useFetchGames();
 
-  useEffect(() => {
-    const fetchGames = async () => {
-      try {
-        const response = await axios.get('http://localhost:8000/api/games');
-        setGames(response.data);
-      } catch (error) {
-        console.error('Błąd podczas pobierania gier:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchGames();
-  }, []);
-
-  if (loading) {
-    return <Loader />;
-  }
+  if (loading) return <Loader />;
+  if (error) return <div>Błąd: {error}</div>;
 
   const logoElement = (
     <div className="logo_container">
