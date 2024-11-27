@@ -3,29 +3,12 @@ import axios from 'axios';
 import DOMPurify from 'dompurify';
 import { Link } from 'react-router-dom';
 import styles from './rssfeedlistsubpage.module.css';
+import useFetchRSS from '../../../hooks/useFetchRSS';
 
 function RssFeedListSubpage() {
-  const [articles, setArticles] = useState([]);
-  const [error, setError] = useState(null);
+  const { error, articles, loading } = useFetchRSS();
 
-  useEffect(() => {
-    const fetchRSSFeeds = async () => {
-      try {
-        const responses = await Promise.all([
-          axios.get('http://localhost:8000/api/rss-feed'),
-        ]);
-
-        const combinedArticles = responses.flatMap(response => response.data);
-        combinedArticles.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-        setArticles(combinedArticles.slice());
-      } catch (err) {
-        setError('Nie udało się pobrać feedów RSS.');
-        console.error('Błąd podczas pobierania danych:', err);
-      }
-    };
-
-    fetchRSSFeeds();
-  }, []);
+  if (error) return <div>Błąd: {error}</div>;
 
   const extractImageFromDescription = (description) => {
     if (!description) return null;

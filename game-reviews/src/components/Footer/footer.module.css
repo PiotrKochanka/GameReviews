@@ -1,19 +1,19 @@
 footer{
     margin-top: 40px;
-    background-color: #141414;
-    border-top: 2px solid #bda8fe;
+    background-color: #1a1a1a;
+    /* border-top: 2px solid #bda8fe; */
 }
 .footer_bottom{
-    color: white;
+    color: rgba(255, 255, 255, 0.788);
     padding: 16px 0px;
     margin: 0 80px;
-    border-top: 1px solid rgba(0, 0, 0, 0.288);
+    border-top: 1px solid rgba(241, 241, 241, 0.048);
 }
 .footer_top{
     display: flex;
     justify-content: space-between;
-    padding: 64px 80px !important;
-    color: white;
+    padding: 120px 80px !important;
+    color: rgba(255, 255, 255, 0.788);
     text-align: left;
 }
 .column:nth-child(3) ul{

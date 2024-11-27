@@ -34,19 +34,27 @@ function NewsSubpage() {
     return <div>Nie znaleziono aktualności.</div>;
   }
 
+  const baseUrl = 'http://127.0.0.1:8000/storage/';
+
   return (
-    <div className={`${styles.news_subpage} container`}>
-      <h1>{newsItem.title}</h1>
-      <div>
-        <span>{newsItem.date}</span>
-        <div
-            dangerouslySetInnerHTML={{ __html: newsItem.content }}
-        />
-      </div>
-      <div className={`${styles.news_button}`}>
-          <Link to={`/news`}>
-            Powrót do listy
-          </Link>
+    <div>
+      <div 
+        className="baner_graphic_back baner_graphic_back_news baner_graphic_back_subpage"
+        style={{ backgroundImage: `url(${baseUrl}${newsItem.photo})` }}
+      />
+      <div className={`${styles.news_subpage} container`}>
+        <h1>{newsItem.title}</h1>
+        <div>
+          <span>{newsItem.date}</span>
+          <div
+              dangerouslySetInnerHTML={{ __html: newsItem.content }}
+          />
+        </div>
+        <div className={`${styles.news_button}`}>
+            <Link to={`/news`}>
+              Powrót do listy
+            </Link>
+        </div>
       </div>
     </div>
   );
