@@ -33,6 +33,7 @@ import useFetchGames from './hooks/useFetchGames';
 function App() {
   const { games, loading, error } = useFetchGames();
 
+  
   if (loading) return <Loader />;
   if (error) return <div>Błąd: {error}</div>;
 
